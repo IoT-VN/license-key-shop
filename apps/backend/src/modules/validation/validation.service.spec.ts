@@ -302,22 +302,29 @@ describe('ValidationService', () => {
 
       await service.getValidationStats(apiKeyId, timeRange);
 
+      const expectedDateFilter = {
+        gte: timeRange.from,
+        lte: timeRange.to,
+      };
+
       const countCalls = mockPrismaService.validationLog.count.mock.calls;
       countCalls.forEach(call => {
         expect(call[0].where).toEqual(
           expect.objectContaining({
             apiKeyId,
-            createdAt: timeRange,
+            createdAt: expectedDateFilter,
           }),
         );
       });
 
-      expect(mockPrismaService.validationLog.findMany).toHaveBeenCalledWith({
-        where: expect.objectContaining({
-          apiKeyId,
-          createdAt: timeRange,
+      expect(mockPrismaService.validationLog.findMany).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: expect.objectContaining({
+            apiKeyId,
+            createdAt: expectedDateFilter,
+          }),
         }),
-      });
+      );
     });
 
     it('should handle zero validations', async () => {
