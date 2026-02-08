@@ -1,13 +1,23 @@
 import { Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "../database/prisma.service";
-import { StripeService } from "./stripe.service";
+import { SePayService } from "./sepay.service";
 import { ConfigService } from "@nestjs/config";
 import { randomUUID } from "crypto";
-import { StripeMetadata } from "../../common/types/metadata.types";
+
+/**
+ * SePay metadata interface
+ */
+interface SePayMetadata {
+  productId: string;
+  userId: string;
+  idempotencyKey: string;
+  mode: "one_time" | "subscription";
+  orderId: string;
+}
 
 /**
  * Payments service
- * Business logic for payment operations
+ * Business logic for payment operations using SePay
  */
 @Injectable()
 export class PaymentsService {
@@ -15,12 +25,12 @@ export class PaymentsService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly stripe: StripeService,
+    private readonly sepay: SePayService,
     private readonly config: ConfigService
   ) {}
 
   /**
-   * Create checkout session
+   * Create checkout payment with QR code
    */
   async createCheckout(userId: string, dto: {
     productId: string;
@@ -41,69 +51,74 @@ export class PaymentsService {
       throw new NotFoundException("Product is not available");
     }
 
-    // Generate idempotency key
-    const idempotencyKey = randomUUID();
-
-    // Build URLs
-    const baseUrl = this.config.get<string>("FRONTEND_URL", "http://localhost:3000");
-    const successUrl = `${baseUrl}/dashboard?session_id={CHECKOUT_SESSION_ID}`;
-    const cancelUrl = `${baseUrl}/checkout`;
-
-    // Create metadata
-    const metadata = {
-      productId: product.id,
-      userId,
-      idempotencyKey,
-      mode: dto.mode,
-    };
-
-    // Create checkout session
-    let session;
+    // Only one-time payments supported for SePay
     if (dto.mode === "subscription") {
-      if (!dto.interval) {
-        throw new Error("Interval required for subscription");
-      }
-
-      session = await this.stripe.createSubscriptionSession({
-        productId: product.id,
-        productName: product.name,
-        amount: Number(product.price),
-        currency: product.currency,
-        interval: dto.interval,
-        successUrl,
-        cancelUrl,
-        customerEmail: dto.customerEmail,
-        metadata,
-      });
-    } else {
-      session = await this.stripe.createCheckoutSession({
-        productId: product.id,
-        productName: product.name,
-        amount: Number(product.price),
-        currency: product.currency,
-        successUrl,
-        cancelUrl,
-        customerEmail: dto.customerEmail,
-        metadata,
-      });
+      throw new NotFoundException("Subscriptions not supported for SePay payments");
     }
 
+    // Generate unique order ID
+    const orderId = randomUUID();
+    const idempotencyKey = randomUUID();
+
+    // Create payment description
+    const description = `ORDER_${orderId}`;
+
+    // Convert price to VND if needed (SePay only supports VND)
+    let amountInVND = Number(product.price);
+    if (product.currency !== "VND") {
+      // TODO: Implement currency conversion
+      this.logger.warn(`Currency conversion not implemented. Using price as-is: ${amountInVND}`);
+    }
+
+    // Create SePay payment
+    const payment = await this.sepay.createPayment({
+      amount: amountInVND,
+      currency: "VND",
+      description,
+      orderId,
+    });
+
+    // Store pending payment in database
+    await this.prisma.purchase.create({
+      data: {
+        userId,
+        productId: product.id,
+        sepayTransactionId: null, // Will be updated on webhook
+        amount: amountInVND as any,
+        currency: "VND",
+        status: "PENDING",
+        metadata: {
+          orderId,
+          idempotencyKey,
+          customerEmail: dto.customerEmail,
+          qrCodeUrl: payment.qrCodeUrl,
+        },
+      },
+    });
+
+    this.logger.log(`Created checkout payment for order: ${orderId}`);
+
     return {
-      checkoutUrl: session.url,
-      sessionId: session.id,
+      qrCodeUrl: payment.qrCodeUrl,
+      accountNumber: payment.accountNumber,
+      bankCode: payment.bankCode,
+      amount: payment.amount,
+      description: payment.description,
+      orderId: payment.orderId,
+      currency: "VND",
     };
   }
 
   /**
-   * Get checkout session status
+   * Get order payment status
    */
-  async getSessionStatus(sessionId: string) {
-    const session = await this.stripe.getCheckoutSession(sessionId);
-
-    // Check if we have a purchase record
+  async getOrderStatus(orderId: string) {
     const purchase = await this.prisma.purchase.findFirst({
       where: {
-        stripePaymentId: session.payment_intent as string,
+        metadata: {
+          path: ["orderId"],
+          equals: orderId,
+        },
       },
       include: {
         licenseKey: true,
@@ -111,17 +126,23 @@ export class PaymentsService {
       },
     });
 
+    if (!purchase) {
+      throw new NotFoundException("Order not found");
+    }
+
     return {
-      sessionId: session.id,
-      status: session.status,
-      paymentStatus: session.payment_status,
-      purchaseId: purchase?.id ?? null,
-      licenseKey: purchase?.licenseKey?.keyString ?? null,
+      orderId,
+      status: purchase.status,
+      amount: Number(purchase.amount),
+      currency: purchase.currency,
+      purchaseId: purchase.id,
+      licenseKey: purchase.licenseKey?.keyString ?? null,
+      createdAt: purchase.createdAt,
     };
   }
 
   /**
-   * Process refund
+   * Process refund (manual - requires bank transfer)
    */
   async processRefund(purchaseId: string, amount?: number, reason?: string) {
     const purchase = await this.prisma.purchase.findUnique({
@@ -144,27 +165,16 @@ export class PaymentsService {
       throw new Error("Refund already processed");
     }
 
-    if (!purchase.stripePaymentId) {
-      throw new Error("No payment intent associated with this purchase");
-    }
-
-    // Process refund via Stripe
-    const stripeRefund = await this.stripe.processRefund({
-      paymentIntentId: purchase.stripePaymentId,
-      amount,
-      reason,
-    });
-
-    // Create refund record
+    // Create refund record (manual refund via bank transfer)
     const refundAmount = amount || Number(purchase.amount);
     const refund = await this.prisma.refund.create({
       data: {
         purchaseId: purchase.id,
         amount: refundAmount as any,
         currency: purchase.currency,
-        stripeRefundId: stripeRefund.id,
+        sepayRefundId: null, // Manual refund
         reason: reason || "Customer request",
-        status: "PROCESSED",
+        status: "PENDING",
         processedAt: new Date(),
       },
     });
@@ -189,96 +199,106 @@ export class PaymentsService {
       data: { status: "REFUNDED" },
     });
 
-    this.logger.log(`Processed refund for purchase: ${purchaseId}`);
+    this.logger.log(`Created refund record for purchase: ${purchaseId} (manual processing required)`);
     return refund;
   }
 
   /**
-   * Handle checkout.session.completed webhook
+   * Handle SePay payment webhook
    */
-  async handleCheckoutCompleted(event: {
-    metadata: StripeMetadata;
-    payment_intent?: string;
-    customer_details?: { email?: string };
-    subscription?: string;
+  async handlePaymentWebhook(transaction: {
+    id: number;
+    transferAmount: number;
+    content: string;
+    referenceCode: string;
+    transactionDate: string;
+    gateway: string;
   }) {
-    const { metadata, payment_intent, customer_details, subscription } = event;
+    // Extract order ID from content
+    const orderId = this.sepay.extractOrderId(transaction.content);
 
-    if (!metadata?.productId || !metadata?.userId) {
-      this.logger.error("Missing metadata in checkout session");
+    if (!orderId) {
+      this.logger.warn(`Could not extract order ID from content: ${transaction.content}`);
       return;
     }
 
     // Check idempotency
     const existingPurchase = await this.prisma.purchase.findFirst({
       where: {
-        stripePaymentId: payment_intent as string,
+        sepayTransactionId: transaction.id.toString(),
       },
     });
 
     if (existingPurchase) {
-      this.logger.log(`Purchase already exists for payment: ${payment_intent}`);
+      this.logger.log(`Purchase already exists for transaction: ${transaction.id}`);
       return;
     }
 
-    // Get product details
-    const product = await this.prisma.product.findUnique({
-      where: { id: metadata.productId },
+    // Find pending purchase by order ID
+    const purchase = await this.prisma.purchase.findFirst({
+      where: {
+        metadata: {
+          path: ["orderId"],
+          equals: orderId,
+        },
+      },
+      include: {
+        product: true,
+      },
     });
 
-    if (!product) {
-      this.logger.error(`Product not found: ${metadata.productId}`);
+    if (!purchase) {
+      this.logger.error(`Purchase not found for order: ${orderId}`);
       return;
     }
 
-    // Allocate license key (only for one-time payments)
-    let licenseKey = null;
-    if (!subscription) {
-      licenseKey = await this.prisma.licenseKey.findFirst({
-        where: {
-          productId: product.id,
-          status: "AVAILABLE",
-        },
-      });
-
-      if (!licenseKey) {
-        this.logger.error(`No available license keys for product: ${product.id}`);
-        // TODO: Generate key on-the-fly or notify admin
-        return;
-      }
-
-      // Update license key status
-      licenseKey = await this.prisma.licenseKey.update({
-        where: { id: licenseKey.id },
-        data: {
-          status: "SOLD",
-          activations: 0,
-          expiresAt: product.validityDays
-            ? new Date(Date.now() + product.validityDays * 24 * 60 * 60 * 1000)
-            : null,
-        },
-      });
-
-      this.logger.log(`Allocated license key: ${licenseKey.id}`);
+    // Verify amount matches
+    const expectedAmount = Number(purchase.amount);
+    if (transaction.transferAmount !== expectedAmount) {
+      this.logger.error(
+        `Amount mismatch for order ${orderId}: expected ${expectedAmount}, got ${transaction.transferAmount}`
+      );
+      return;
     }
 
-    // Create purchase record
-    const amount = event.amount_total ? event.amount_total / 100 : 0;
-    const purchase = await this.prisma.purchase.create({
+    // Allocate license key
+    const licenseKey = await this.prisma.licenseKey.findFirst({
+      where: {
+        productId: purchase.productId,
+        status: "AVAILABLE",
+      },
+    });
+
+    if (!licenseKey) {
+      this.logger.error(`No available license keys for product: ${purchase.productId}`);
+      // TODO: Generate key on-the-fly or notify admin
+      return;
+    }
+
+    // Update license key status
+    await this.prisma.licenseKey.update({
+      where: { id: licenseKey.id },
       data: {
-        userId: metadata.userId,
-        productId: product.id,
-        stripePaymentId: payment_intent as string,
-        stripeSubscriptionId: subscription as string | undefined,
-        stripeInvoiceId: null, // Will be updated by invoice.paid
-        amount: amount as any,
-        currency: event.currency || "USD",
+        status: "SOLD",
+        activations: 0,
+        expiresAt: purchase.product.validityDays
+          ? new Date(Date.now() + purchase.product.validityDays * 24 * 60 * 60 * 1000)
+          : null,
+      },
+    });
+
+    this.logger.log(`Allocated license key: ${licenseKey.id}`);
+
+    // Update purchase record
+    await this.prisma.purchase.update({
+      where: { id: purchase.id },
+      data: {
         status: "COMPLETED",
-        licenseKey: licenseKey ? { connect: { id: licenseKey.id } } : undefined,
-        metadata: {
-          customerEmail: customer_details?.email,
-          idempotencyKey: metadata.idempotencyKey,
+        sepayTransactionId: transaction.id.toString(),
+        licenseKey: {
+          connect: { id: licenseKey.id },
         },
+        completedAt: new Date(),
       },
     });
 
@@ -287,13 +307,13 @@ export class PaymentsService {
       data: {
         purchaseId: purchase.id,
         type: "PAYMENT",
-        amount: amount as any,
-        currency: event.currency || "USD",
-        stripeTxId: payment_intent as string,
+        amount: transaction.transferAmount as any,
+        currency: "VND",
+        sepayTxId: transaction.referenceCode,
       },
     });
 
-    this.logger.log(`Created purchase: ${purchase.id} for user: ${metadata.userId}`);
+    this.logger.log(`Completed purchase: ${purchase.id} for order: ${orderId}`);
 
     // TODO: Send confirmation email with license key
 
@@ -301,174 +321,26 @@ export class PaymentsService {
   }
 
   /**
-   * Handle invoice.paid (subscription renewal)
+   * Handle invoice.paid (subscription renewal) - Not supported for SePay
    */
-  async handleInvoicePaid(event: {
-    subscription?: string;
-    customer?: string;
-    payment_intent?: string;
-  }) {
-    const { subscription, customer, payment_intent } = event;
-
-    if (!subscription) {
-      return;
-    }
-
-    // Find purchase by subscription ID
-    const purchase = await this.prisma.purchase.findFirst({
-      where: {
-        stripeSubscriptionId: subscription as string,
-      },
-      include: {
-        product: true,
-        licenseKey: true,
-      },
-    });
-
-    if (!purchase) {
-      this.logger.error(`Purchase not found for subscription: ${subscription}`);
-      return;
-    }
-
-    // Update license key expiry
-    if (purchase.licenseKey && purchase.product.validityDays) {
-      const currentExpiry = purchase.licenseKey.expiresAt || new Date();
-      const newExpiry = new Date(
-        currentExpiry.getTime() + purchase.product.validityDays * 24 * 60 * 60 * 1000
-      );
-
-      await this.prisma.licenseKey.update({
-        where: { id: purchase.licenseKey.id },
-        data: { expiresAt: newExpiry },
-      });
-
-      this.logger.log(`Extended license key expiry: ${purchase.licenseKey.id}`);
-    }
-
-    // Update invoice ID
-    await this.prisma.purchase.update({
-      where: { id: purchase.id },
-      data: { stripeInvoiceId: event.id },
-    });
-
-    // Create transaction record
-    const amount = event.amount_paid ? event.amount_paid / 100 : 0;
-    await this.prisma.transaction.create({
-      data: {
-        purchaseId: purchase.id,
-        type: "PAYMENT",
-        amount: amount as any,
-        currency: event.currency || "USD",
-        stripeTxId: payment_intent as string,
-      },
-    });
-
-    this.logger.log(`Processed subscription renewal: ${subscription}`);
+  async handleInvoicePaid(_event: any) {
+    this.logger.warn("Subscription handling not supported for SePay payments");
+    return;
   }
 
   /**
-   * Handle charge.refunded
+   * Handle charge.refunded - Not supported for SePay
    */
-  async handleChargeRefunded(event: any) {
-    const { payment_intent, amount } = event;
-
-    if (!payment_intent) {
-      return;
-    }
-
-    // Find purchase by payment intent
-    const purchase = await this.prisma.purchase.findFirst({
-      where: {
-        stripePaymentId: payment_intent as string,
-      },
-      include: {
-        licenseKey: true,
-      },
-    });
-
-    if (!purchase) {
-      this.logger.error(`Purchase not found for payment: ${payment_intent}`);
-      return;
-    }
-
-    // Revoke license key
-    if (purchase.licenseKey) {
-      await this.prisma.licenseKey.update({
-        where: { id: purchase.licenseKey.id },
-        data: {
-          status: "REVOKED",
-          revokedAt: new Date(),
-          revokedReason: "Refunded",
-        },
-      });
-
-      this.logger.log(`Revoked license key: ${purchase.licenseKey.id}`);
-    }
-
-    // Create refund record if not exists
-    const existingRefund = await this.prisma.refund.findUnique({
-      where: { purchaseId: purchase.id },
-    });
-
-    if (!existingRefund) {
-      const refundAmount = amount ? amount / 100 : 0;
-      await this.prisma.refund.create({
-        data: {
-          purchaseId: purchase.id,
-          amount: refundAmount as any,
-          currency: event.currency || "USD",
-          stripeRefundId: event.refund as string || null,
-          reason: "Refunded via Stripe",
-          status: "PROCESSED",
-          processedAt: new Date(),
-        },
-      });
-    }
-
-    // Update purchase status
-    await this.prisma.purchase.update({
-      where: { id: purchase.id },
-      data: { status: "REFUNDED" },
-    });
-
-    this.logger.log(`Processed refund for purchase: ${purchase.id}`);
+  async handleChargeRefunded(_event: any) {
+    this.logger.warn("Stripe webhook handling not supported for SePay payments");
+    return;
   }
 
   /**
-   * Handle customer.subscription.deleted
+   * Handle customer.subscription.deleted - Not supported for SePay
    */
-  async handleSubscriptionDeleted(event: any) {
-    const { id } = event;
-
-    // Find purchase by subscription ID
-    const purchase = await this.prisma.purchase.findFirst({
-      where: {
-        stripeSubscriptionId: id,
-      },
-      include: {
-        licenseKey: true,
-      },
-    });
-
-    if (!purchase) {
-      this.logger.error(`Purchase not found for subscription: ${id}`);
-      return;
-    }
-
-    // Revoke license key
-    if (purchase.licenseKey) {
-      await this.prisma.licenseKey.update({
-        where: { id: purchase.licenseKey.id },
-        data: {
-          status: "REVOKED",
-          revokedAt: new Date(),
-          revokedReason: "Subscription cancelled",
-        },
-      });
-
-      this.logger.log(`Revoked license key for cancelled subscription: ${purchase.licenseKey.id}`);
-    }
-
-    this.logger.log(`Cancelled subscription: ${id}`);
+  async handleSubscriptionDeleted(_event: any) {
+    this.logger.warn("Subscription handling not supported for SePay payments");
+    return;
   }
 }

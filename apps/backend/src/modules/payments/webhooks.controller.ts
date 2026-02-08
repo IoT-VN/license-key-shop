@@ -1,11 +1,10 @@
 import { Controller, Post, Body, Logger, Headers } from "@nestjs/common";
 import { PaymentsService } from "./payments.service";
-import { StripeService } from "./stripe.service";
-import { WebhookDto } from "./dto/webhook.dto";
+import { SePayService } from "./sepay.service";
 
 /**
- * Stripe webhook controller
- * Handles incoming webhook events from Stripe
+ * SePay webhook controller
+ * Handles incoming webhook events from SePay
  */
 @Controller("webhooks")
 export class WebhooksController {
@@ -13,60 +12,47 @@ export class WebhooksController {
 
   constructor(
     private readonly payments: PaymentsService,
-    private readonly stripe: StripeService
+    private readonly sepay: SePayService
   ) {}
 
   /**
-   * Handle Stripe webhook events
-   * POST /webhooks/stripe
+   * Handle SePay webhook events
+   * POST /webhooks/sepay
    */
-  @Post("stripe")
-  async handleStripeWebhook(
-    @Body() dto: WebhookDto,
-    @Headers("stripe-signature") signature: string
+  @Post("sepay")
+  async handleSePayWebhook(
+    @Body() payload: any,
+    @Headers("authorization") authHeader: string
   ) {
     try {
       // Verify webhook signature
-      const event = this.stripe.constructWebhookEvent(
-        dto.payload,
-        signature
-      );
+      const isValid = this.sepay.verifyWebhook(authHeader);
 
-      this.logger.log(`Processing webhook: ${event.type}`);
-
-      // Handle different event types
-      switch (event.type) {
-        case "checkout.session.completed":
-          await this.payments.handleCheckoutCompleted(event.data.object);
-          break;
-
-        case "invoice.paid":
-          await this.payments.handleInvoicePaid(event.data.object);
-          break;
-
-        case "invoice.payment_failed":
-          this.logger.warn(
-            `Invoice payment failed: ${event.data.object.id}`
-          );
-          // TODO: Handle failed subscription payment
-          break;
-
-        case "charge.refunded":
-          await this.payments.handleChargeRefunded(event.data.object);
-          break;
-
-        case "customer.subscription.deleted":
-          await this.payments.handleSubscriptionDeleted(event.data.object);
-          break;
-
-        default:
-          this.logger.log(`Unhandled webhook event: ${event.type}`);
+      if (!isValid) {
+        this.logger.warn("Invalid webhook signature");
+        return { received: false, error: "Invalid signature" };
       }
 
-      return { received: true };
+      // Parse webhook payload
+      const transaction = this.sepay.parseWebhookPayload(payload);
+
+      this.logger.log(
+        `Processing SePay webhook: transaction ${transaction.id}, amount: ${transaction.transferAmount}`
+      );
+
+      // Check if this is a payment transaction
+      if (!this.sepay.isPaymentTransaction(transaction)) {
+        this.logger.log(`Skipping non-payment transaction: ${transaction.id}`);
+        return { received: true };
+      }
+
+      // Handle payment
+      await this.payments.handlePaymentWebhook(transaction);
+
+      return { received: true, success: true };
     } catch (error: any) {
       this.logger.error(`Webhook processing failed: ${error.message}`);
-      // Still return 200 to avoid Stripe retries
+      // Still return 200 to avoid SePay retries
       return { received: false, error: error.message };
     }
   }

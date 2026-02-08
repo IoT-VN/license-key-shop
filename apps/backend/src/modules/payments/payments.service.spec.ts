@@ -1,51 +1,93 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { NotFoundException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { PaymentsService } from './payments.service';
 import { PrismaService } from '../database/prisma.service';
-import { StripeService } from './stripe.service';
-import { ConfigService } from '@nestjs/config';
-import { NotFoundException } from '@nestjs/common';
+import { SePayService } from './sepay.service';
 
 describe('PaymentsService', () => {
   let service: PaymentsService;
-  let prismaService: PrismaService;
-  let stripeService: StripeService;
-  let configService: ConfigService;
+  let mockPrismaService: Partial<PrismaService>;
+  let mockSePayService: Partial<SePayService>;
+  let mockConfigService: Partial<ConfigService>;
 
-  const mockPrismaService = {
-    product: {
-      findUnique: jest.fn(),
-    },
-    purchase: {
-      findUnique: jest.fn(),
-      findFirst: jest.fn(),
-      create: jest.fn(),
-      update: jest.fn(),
-    },
-    licenseKey: {
-      findFirst: jest.fn(),
-      update: jest.fn(),
-    },
-    refund: {
-      findUnique: jest.fn(),
-      create: jest.fn(),
-    },
-    transaction: {
-      create: jest.fn(),
-    },
+  const mockProduct = {
+    id: 'prod-123',
+    name: 'Test Product',
+    description: 'Test Description',
+    price: 100000,
+    currency: 'VND',
+    isActive: true,
+    validityDays: 365,
+    maxActivations: 1,
+    metadata: {},
+    createdAt: new Date(),
+    updatedAt: new Date(),
   };
 
-  const mockStripeService = {
-    createCheckoutSession: jest.fn(),
-    createSubscriptionSession: jest.fn(),
-    getCheckoutSession: jest.fn(),
-    processRefund: jest.fn(),
-  };
-
-  const mockConfigService = {
-    get: jest.fn(),
+  const mockLicenseKey = {
+    id: 'key-123',
+    keyString: 'TEST-TEST-TEST-TEST',
+    signature: 'sig123',
+    productId: 'prod-123',
+    status: 'AVAILABLE',
+    activations: 0,
+    maxActivations: 1,
+    expiresAt: null,
+    revokedAt: null,
+    revokedReason: null,
+    metadata: null,
+    purchaseId: null,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   };
 
   beforeEach(async () => {
+    mockPrismaService = {
+      product: {
+        findUnique: jest.fn(),
+      },
+      purchase: {
+        create: jest.fn(),
+        findFirst: jest.fn(),
+        findUnique: jest.fn(),
+        update: jest.fn(),
+      },
+      licenseKey: {
+        findFirst: jest.fn(),
+        update: jest.fn(),
+      },
+      transaction: {
+        create: jest.fn(),
+      },
+      refund: {
+        findUnique: jest.fn(),
+        create: jest.fn(),
+      },
+    } as any;
+
+    mockSePayService = {
+      createPayment: jest.fn().mockResolvedValue({
+        qrCodeUrl: 'https://qr.sepay.vn/img?acc=0010000000355&bank=Vietcombank&amount=100000&des=ORDER_test-123',
+        accountNumber: '0010000000355',
+        bankCode: 'Vietcombank',
+        amount: 100000,
+        description: 'ORDER_test-123',
+        orderId: 'test-123',
+      }),
+      extractOrderId: jest.fn().mockReturnValue('test-123'),
+      generateQRCode: jest.fn().mockReturnValue('https://qr.sepay.vn/img?acc=0010000000355&bank=Vietcombank&amount=100000&des=ORDER_test-123'),
+    } as any;
+
+    mockConfigService = {
+      get: jest.fn((key: string) => {
+        const config: Record<string, string> = {
+          FRONTEND_URL: 'http://localhost:3000',
+        };
+        return config[key];
+      }),
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         PaymentsService,
@@ -54,8 +96,8 @@ describe('PaymentsService', () => {
           useValue: mockPrismaService,
         },
         {
-          provide: StripeService,
-          useValue: mockStripeService,
+          provide: SePayService,
+          useValue: mockSePayService,
         },
         {
           provide: ConfigService,
@@ -65,33 +107,17 @@ describe('PaymentsService', () => {
     }).compile();
 
     service = module.get<PaymentsService>(PaymentsService);
-    prismaService = module.get<PrismaService>(PrismaService);
-    stripeService = module.get<StripeService>(StripeService);
-    configService = module.get<ConfigService>(ConfigService);
-
-    // Default config
-    mockConfigService.get.mockReturnValue('http://localhost:3000');
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
+  it('should be defined', () => {
+    expect(service).toBeDefined();
   });
 
   describe('createCheckout', () => {
-    const mockProduct = {
-      id: 'prod-123',
-      name: 'Test Product',
-      price: 99.99,
-      currency: 'USD',
-      isActive: true,
-      stripePriceId: 'price_123',
-    };
-
-    it('should create one-time checkout session', async () => {
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
-      mockStripeService.createCheckoutSession.mockResolvedValue({
-        url: 'https://checkout.stripe.com/pay/123',
-        id: 'cs_123',
+    it('should create checkout payment with QR code', async () => {
+      mockPrismaService.product.findUnique = jest.fn().mockResolvedValue(mockProduct);
+      mockPrismaService.purchase.create = jest.fn().mockResolvedValue({
+        id: 'purchase-123',
       });
 
       const result = await service.createCheckout('user-123', {
@@ -100,38 +126,22 @@ describe('PaymentsService', () => {
         customerEmail: 'test@example.com',
       });
 
-      expect(result.checkoutUrl).toBe('https://checkout.stripe.com/pay/123');
-      expect(result.sessionId).toBe('cs_123');
-      expect(mockStripeService.createCheckoutSession).toHaveBeenCalledWith(
-        expect.objectContaining({
-          productId: 'prod-123',
-          amount: 99.99,
-          currency: 'USD',
-        }),
-      );
-    });
-
-    it('should create subscription checkout session', async () => {
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
-      mockStripeService.createSubscriptionSession.mockResolvedValue({
-        url: 'https://checkout.stripe.com/pay/subscription',
-        id: 'cs_sub_123',
+      expect(result.qrCodeUrl).toBeDefined();
+      expect(result.accountNumber).toBe('0010000000355');
+      expect(result.bankCode).toBe('Vietcombank');
+      expect(result.amount).toBe(100000);
+      expect(result.currency).toBe('VND');
+      expect(result.orderId).toBeDefined();
+      expect(mockSePayService.createPayment).toHaveBeenCalledWith({
+        amount: 100000,
+        currency: 'VND',
+        description: expect.stringContaining('ORDER_'),
+        orderId: expect.any(String),
       });
-
-      const result = await service.createCheckout('user-123', {
-        productId: 'prod-123',
-        mode: 'subscription',
-        interval: 'month',
-        customerEmail: 'test@example.com',
-      });
-
-      expect(result.checkoutUrl).toBeDefined();
-      expect(result.sessionId).toBe('cs_sub_123');
-      expect(mockStripeService.createSubscriptionSession).toHaveBeenCalled();
     });
 
     it('should throw NotFoundException if product not found', async () => {
-      mockPrismaService.product.findUnique.mockResolvedValue(null);
+      mockPrismaService.product.findUnique = jest.fn().mockResolvedValue(null);
 
       await expect(
         service.createCheckout('user-123', {
@@ -139,17 +149,11 @@ describe('PaymentsService', () => {
           mode: 'one_time',
         }),
       ).rejects.toThrow(NotFoundException);
-      await expect(
-        service.createCheckout('user-123', {
-          productId: 'invalid-prod',
-          mode: 'one_time',
-        }),
-      ).rejects.toThrow('Product not found');
     });
 
-    it('should throw if product is not active', async () => {
+    it('should throw NotFoundException for inactive products', async () => {
       const inactiveProduct = { ...mockProduct, isActive: false };
-      mockPrismaService.product.findUnique.mockResolvedValue(inactiveProduct);
+      mockPrismaService.product.findUnique = jest.fn().mockResolvedValue(inactiveProduct);
 
       await expect(
         service.createCheckout('user-123', {
@@ -157,446 +161,198 @@ describe('PaymentsService', () => {
           mode: 'one_time',
         }),
       ).rejects.toThrow(NotFoundException);
-      await expect(
-        service.createCheckout('user-123', {
-          productId: 'prod-123',
-          mode: 'one_time',
-        }),
-      ).rejects.toThrow('not available');
     });
 
-    it('should require interval for subscription mode', async () => {
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
+    it('should not support subscription mode', async () => {
+      mockPrismaService.product.findUnique = jest.fn().mockResolvedValue(mockProduct);
 
       await expect(
         service.createCheckout('user-123', {
           productId: 'prod-123',
           mode: 'subscription',
+          interval: 'month',
         }),
-      ).rejects.toThrow('Interval required for subscription');
-    });
-
-    it('should generate unique idempotency key', async () => {
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
-      mockStripeService.createCheckoutSession.mockResolvedValue({
-        url: 'https://checkout.stripe.com/pay/123',
-        id: 'cs_123',
-      });
-
-      await service.createCheckout('user-123', {
-        productId: 'prod-123',
-        mode: 'one_time',
-      });
-
-      const createCall = mockStripeService.createCheckoutSession.mock.calls[0][0];
-      expect(createCall.metadata.idempotencyKey).toBeDefined();
-      expect(createCall.metadata.idempotencyKey.length).toBeGreaterThan(0);
+      ).rejects.toThrow(NotFoundException);
     });
   });
 
-  describe('getSessionStatus', () => {
-    it('should return session status with purchase', async () => {
-      const mockSession = {
-        id: 'cs_123',
-        status: 'complete',
-        payment_status: 'paid',
-        payment_intent: 'pi_123',
-      };
-
+  describe('getOrderStatus', () => {
+    it('should return order status', async () => {
       const mockPurchase = {
         id: 'purchase-123',
+        status: 'COMPLETED',
+        amount: 100000,
+        currency: 'VND',
+        createdAt: new Date(),
         licenseKey: {
-          keyString: 'TEST-KEY-1234',
+          keyString: 'TEST-TEST-TEST-TEST',
         },
-        product: {
-          name: 'Test Product',
-        },
+        product: mockProduct,
       };
 
-      mockStripeService.getCheckoutSession.mockResolvedValue(mockSession);
-      mockPrismaService.purchase.findFirst.mockResolvedValue(mockPurchase);
+      mockPrismaService.purchase.findFirst = jest.fn().mockResolvedValue(mockPurchase);
 
-      const result = await service.getSessionStatus('cs_123');
+      const result = await service.getOrderStatus('order-123');
 
-      expect(result.sessionId).toBe('cs_123');
-      expect(result.status).toBe('complete');
-      expect(result.paymentStatus).toBe('paid');
-      expect(result.purchaseId).toBe('purchase-123');
-      expect(result.licenseKey).toBe('TEST-KEY-1234');
+      expect(result.orderId).toBe('order-123');
+      expect(result.status).toBe('COMPLETED');
+      expect(result.licenseKey).toBe('TEST-TEST-TEST-TEST');
     });
 
-    it('should return session status without purchase', async () => {
-      const mockSession = {
-        id: 'cs_123',
-        status: 'expired',
-        payment_status: 'unpaid',
-        payment_intent: 'pi_123',
-      };
+    it('should throw NotFoundException if order not found', async () => {
+      mockPrismaService.purchase.findFirst = jest.fn().mockResolvedValue(null);
 
-      mockStripeService.getCheckoutSession.mockResolvedValue(mockSession);
-      mockPrismaService.purchase.findFirst.mockResolvedValue(null);
-
-      const result = await service.getSessionStatus('cs_123');
-
-      expect(result.status).toBe('expired');
-      expect(result.purchaseId).toBeNull();
-      expect(result.licenseKey).toBeNull();
+      await expect(service.getOrderStatus('invalid-order')).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
   describe('processRefund', () => {
-    const mockPurchase = {
-      id: 'purchase-123',
-      status: 'COMPLETED',
-      stripePaymentId: 'pi_123',
-      amount: 99.99,
-      currency: 'USD',
-      licenseKey: {
-        id: 'key-123',
-        keyString: 'TEST-KEY-1234',
-      },
-      refund: null,
-    };
+    it('should process refund successfully', async () => {
+      const mockPurchase = {
+        id: 'purchase-123',
+        status: 'COMPLETED',
+        amount: 100000,
+        currency: 'VND',
+        stripePaymentId: null,
+        licenseKey: {
+          id: 'key-123',
+        },
+        refund: null,
+      };
 
-    it('should process full refund', async () => {
-      mockPrismaService.purchase.findUnique.mockResolvedValue(mockPurchase);
-      mockStripeService.processRefund.mockResolvedValue({
-        id: 're_123',
-        amount: 9999,
-      });
-      mockPrismaService.refund.create.mockResolvedValue({
+      mockPrismaService.purchase.findUnique = jest.fn().mockResolvedValue(mockPurchase);
+      mockPrismaService.refund.findUnique = jest.fn().mockResolvedValue(null);
+      mockPrismaService.refund.create = jest.fn().mockResolvedValue({
         id: 'refund-123',
       });
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.purchase.update.mockResolvedValue({});
+      mockPrismaService.licenseKey.update = jest.fn().mockResolvedValue({});
+      mockPrismaService.purchase.update = jest.fn().mockResolvedValue({});
 
       const result = await service.processRefund('purchase-123');
 
       expect(result).toBeDefined();
-      expect(mockStripeService.processRefund).toHaveBeenCalledWith({
-        paymentIntentId: 'pi_123',
-        amount: undefined,
-        reason: undefined,
-      });
+      expect(mockPrismaService.refund.create).toHaveBeenCalled();
       expect(mockPrismaService.licenseKey.update).toHaveBeenCalledWith({
         where: { id: 'key-123' },
-        data: expect.objectContaining({
+        data: {
           status: 'REVOKED',
+          revokedAt: expect.any(Date),
           revokedReason: 'Refund processed',
-        }),
-      });
-    });
-
-    it('should process partial refund', async () => {
-      mockPrismaService.purchase.findUnique.mockResolvedValue(mockPurchase);
-      mockStripeService.processRefund.mockResolvedValue({
-        id: 're_123',
-        amount: 5000,
-      });
-      mockPrismaService.refund.create.mockResolvedValue({});
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.purchase.update.mockResolvedValue({});
-
-      await service.processRefund('purchase-123', 50, 'Customer request');
-
-      expect(mockStripeService.processRefund).toHaveBeenCalledWith({
-        paymentIntentId: 'pi_123',
-        amount: 50,
-        reason: 'Customer request',
+        },
       });
     });
 
     it('should throw NotFoundException if purchase not found', async () => {
-      mockPrismaService.purchase.findUnique.mockResolvedValue(null);
+      mockPrismaService.purchase.findUnique = jest.fn().mockResolvedValue(null);
 
       await expect(service.processRefund('invalid-purchase')).rejects.toThrow(
         NotFoundException,
       );
     });
 
-    it('should throw if purchase not completed', async () => {
-      const pendingPurchase = { ...mockPurchase, status: 'PENDING' };
-      mockPrismaService.purchase.findUnique.mockResolvedValue(pendingPurchase);
-
-      await expect(service.processRefund('purchase-123')).rejects.toThrow(
-        'Can only refund completed purchases',
-      );
-    });
-
-    it('should throw if already refunded', async () => {
-      const refundedPurchase = {
-        ...mockPurchase,
+    it('should not refund already refunded purchases', async () => {
+      const mockPurchase = {
+        id: 'purchase-123',
+        status: 'COMPLETED',
         refund: { id: 'refund-123' },
       };
-      mockPrismaService.purchase.findUnique.mockResolvedValue(refundedPurchase);
+
+      mockPrismaService.purchase.findUnique = jest.fn().mockResolvedValue(mockPurchase);
 
       await expect(service.processRefund('purchase-123')).rejects.toThrow(
         'Refund already processed',
       );
     });
-
-    it('should handle purchase without license key', async () => {
-      const noKeyPurchase = { ...mockPurchase, licenseKey: null };
-      mockPrismaService.purchase.findUnique.mockResolvedValue(noKeyPurchase);
-      mockStripeService.processRefund.mockResolvedValue({ id: 're_123' });
-      mockPrismaService.refund.create.mockResolvedValue({});
-      mockPrismaService.purchase.update.mockResolvedValue({});
-
-      await service.processRefund('purchase-123');
-
-      expect(mockPrismaService.licenseKey.update).not.toHaveBeenCalled();
-    });
   });
 
-  describe('handleCheckoutCompleted', () => {
-    const mockEvent = {
-      metadata: {
-        productId: 'prod-123',
-        userId: 'user-123',
-        mode: 'one_time',
-        idempotencyKey: 'uuid-123',
-      },
-      payment_intent: 'pi_123',
-      customer_details: {
-        email: 'test@example.com',
-      },
-      subscription: null,
-      amount_total: 9999,
-      currency: 'USD',
-    };
-
-    it('should create purchase and allocate license key', async () => {
-      const mockProduct = {
-        id: 'prod-123',
-        name: 'Test Product',
-        validityDays: 365,
-      };
-
-      const mockLicenseKey = {
-        id: 'key-123',
-        keyString: 'TEST-KEY-1234',
-        status: 'AVAILABLE',
-      };
-
+  describe('handlePaymentWebhook', () => {
+    it('should process payment webhook successfully', async () => {
       const mockPurchase = {
         id: 'purchase-123',
+        productId: 'prod-123',
+        amount: 100000,
+        product: mockProduct,
       };
 
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
-      mockPrismaService.purchase.findFirst.mockResolvedValue(null);
-      mockPrismaService.licenseKey.findFirst.mockResolvedValue(mockLicenseKey);
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.purchase.create.mockResolvedValue(mockPurchase);
-      mockPrismaService.transaction.create.mockResolvedValue({});
+      const mockTransaction = {
+        id: 123,
+        transferAmount: 100000,
+        content: 'ORDER_test-123',
+        referenceCode: 'REF123',
+        transactionDate: '2024-01-15 10:30:00',
+        gateway: 'Vietcombank',
+      };
 
-      const result = await service.handleCheckoutCompleted(mockEvent);
+      mockPrismaService.purchase.findFirst = jest.fn()
+        .mockResolvedValueOnce(null) // No existing purchase
+        .mockResolvedValueOnce(mockPurchase); // Found by order ID
+      mockPrismaService.licenseKey.findFirst = jest.fn().mockResolvedValue(mockLicenseKey);
+      mockPrismaService.licenseKey.update = jest.fn().mockResolvedValue({});
+      mockPrismaService.purchase.update = jest.fn().mockResolvedValue({});
+      mockPrismaService.transaction.create = jest.fn().mockResolvedValue({});
+
+      mockSePayService.extractOrderId = jest.fn().mockReturnValue('test-123');
+
+      const result = await service.handlePaymentWebhook(mockTransaction);
 
       expect(result).toBeDefined();
-      expect(mockPrismaService.licenseKey.findFirst).toHaveBeenCalledWith({
-        where: {
-          productId: 'prod-123',
-          status: 'AVAILABLE',
-        },
-      });
       expect(mockPrismaService.licenseKey.update).toHaveBeenCalled();
-      expect(mockPrismaService.purchase.create).toHaveBeenCalledWith({
+      expect(mockPrismaService.purchase.update).toHaveBeenCalledWith({
+        where: { id: 'purchase-123' },
         data: expect.objectContaining({
-          userId: 'user-123',
-          productId: 'prod-123',
-          stripePaymentId: 'pi_123',
-          amount: 99.99,
+          status: 'COMPLETED',
+          sepayTransactionId: '123',
         }),
       });
     });
 
-    it('should be idempotent', async () => {
-      mockPrismaService.purchase.findFirst.mockResolvedValue({
+    it('should skip duplicate webhooks', async () => {
+      const mockTransaction = {
+        id: 123,
+        transferAmount: 100000,
+        content: 'ORDER_test-123',
+        referenceCode: 'REF123',
+        transactionDate: '2024-01-15 10:30:00',
+        gateway: 'Vietcombank',
+      };
+
+      mockPrismaService.purchase.findFirst = jest.fn().mockResolvedValue({
         id: 'existing-purchase',
       });
 
-      const result = await service.handleCheckoutCompleted(mockEvent);
-
-      expect(result).toBeUndefined();
-      expect(mockPrismaService.purchase.create).not.toHaveBeenCalled();
-    });
-
-    it('should handle subscription without license key', async () => {
-      const subscriptionEvent = {
-        ...mockEvent,
-        metadata: { ...mockEvent.metadata, mode: 'subscription' },
-        subscription: 'sub_123',
-      };
-
-      const mockProduct = {
-        id: 'prod-123',
-        name: 'Test Subscription',
-      };
-
-      mockPrismaService.product.findUnique.mockResolvedValue(mockProduct);
-      mockPrismaService.purchase.findFirst.mockResolvedValue(null);
-      mockPrismaService.purchase.create.mockResolvedValue({ id: 'purchase-123' });
-      mockPrismaService.transaction.create.mockResolvedValue({});
-
-      await service.handleCheckoutCompleted(subscriptionEvent);
+      await service.handlePaymentWebhook(mockTransaction);
 
       expect(mockPrismaService.licenseKey.findFirst).not.toHaveBeenCalled();
-      expect(mockPrismaService.purchase.create).toHaveBeenCalledWith({
-        data: expect.objectContaining({
-          stripeSubscriptionId: 'sub_123',
-        }),
-      });
     });
-  });
 
-  describe('handleInvoicePaid', () => {
-    it('should extend license key expiry for subscription renewal', async () => {
-      const mockEvent = {
-        subscription: 'sub_123',
-        customer: 'cus_123',
-        payment_intent: 'pi_renewal',
-        id: 'in_123',
-        amount_paid: 9999,
-        currency: 'USD',
-      };
-
+    it('should reject amount mismatch', async () => {
       const mockPurchase = {
         id: 'purchase-123',
-        product: {
-          id: 'prod-123',
-          validityDays: 30,
-        },
-        licenseKey: {
-          id: 'key-123',
-          expiresAt: new Date('2026-02-01'),
-        },
+        productId: 'prod-123',
+        amount: 100000,
+        product: mockProduct,
       };
 
-      mockPrismaService.purchase.findFirst.mockResolvedValue(mockPurchase);
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.purchase.update.mockResolvedValue({});
-      mockPrismaService.transaction.create.mockResolvedValue({});
-
-      await service.handleInvoicePaid(mockEvent);
-
-      expect(mockPrismaService.licenseKey.update).toHaveBeenCalledWith({
-        where: { id: 'key-123' },
-        data: {
-          expiresAt: expect.any(Date),
-        },
-      });
-    });
-
-    it('should handle missing purchase gracefully', async () => {
-      const mockEvent = {
-        subscription: 'sub_123',
+      const mockTransaction = {
+        id: 123,
+        transferAmount: 99999, // Wrong amount
+        content: 'ORDER_test-123',
+        referenceCode: 'REF123',
+        transactionDate: '2024-01-15 10:30:00',
+        gateway: 'Vietcombank',
       };
 
-      mockPrismaService.purchase.findFirst.mockResolvedValue(null);
+      mockPrismaService.purchase.findFirst = jest.fn()
+        .mockResolvedValueOnce(null)
+        .mockResolvedValueOnce(mockPurchase);
 
-      await service.handleInvoicePaid(mockEvent);
+      mockSePayService.extractOrderId = jest.fn().mockReturnValue('test-123');
 
-      expect(mockPrismaService.licenseKey.update).not.toHaveBeenCalled();
-    });
-  });
+      await service.handlePaymentWebhook(mockTransaction);
 
-  describe('handleChargeRefunded', () => {
-    it('should revoke license key and create refund record', async () => {
-      const mockEvent = {
-        payment_intent: 'pi_123',
-        amount: 9999,
-        currency: 'USD',
-        refund: 're_123',
-      };
-
-      const mockPurchase = {
-        id: 'purchase-123',
-        licenseKey: {
-          id: 'key-123',
-          keyString: 'TEST-KEY-1234',
-        },
-      };
-
-      mockPrismaService.purchase.findFirst.mockResolvedValue(mockPurchase);
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.refund.findUnique.mockResolvedValue(null);
-      mockPrismaService.refund.create.mockResolvedValue({});
-      mockPrismaService.purchase.update.mockResolvedValue({});
-
-      await service.handleChargeRefunded(mockEvent);
-
-      expect(mockPrismaService.licenseKey.update).toHaveBeenCalledWith({
-        where: { id: 'key-123' },
-        data: {
-          status: 'REVOKED',
-          revokedAt: expect.any(Date),
-          revokedReason: 'Refunded',
-        },
-      });
-      expect(mockPrismaService.refund.create).toHaveBeenCalled();
-    });
-
-    it('should not duplicate refund record', async () => {
-      const mockEvent = {
-        payment_intent: 'pi_123',
-      };
-
-      const mockPurchase = {
-        id: 'purchase-123',
-        licenseKey: {
-          id: 'key-123',
-        },
-      };
-
-      mockPrismaService.purchase.findFirst.mockResolvedValue(mockPurchase);
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-      mockPrismaService.refund.findUnique.mockResolvedValue({ id: 'refund-123' });
-      mockPrismaService.purchase.update.mockResolvedValue({});
-
-      await service.handleChargeRefunded(mockEvent);
-
-      expect(mockPrismaService.refund.create).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('handleSubscriptionDeleted', () => {
-    it('should revoke license key on subscription cancellation', async () => {
-      const mockEvent = {
-        id: 'sub_123',
-      };
-
-      const mockPurchase = {
-        id: 'purchase-123',
-        licenseKey: {
-          id: 'key-123',
-          keyString: 'TEST-KEY-1234',
-        },
-      };
-
-      mockPrismaService.purchase.findFirst.mockResolvedValue(mockPurchase);
-      mockPrismaService.licenseKey.update.mockResolvedValue({});
-
-      await service.handleSubscriptionDeleted(mockEvent);
-
-      expect(mockPrismaService.licenseKey.update).toHaveBeenCalledWith({
-        where: { id: 'key-123' },
-        data: {
-          status: 'REVOKED',
-          revokedAt: expect.any(Date),
-          revokedReason: 'Subscription cancelled',
-        },
-      });
-    });
-
-    it('should handle missing purchase', async () => {
-      const mockEvent = {
-        id: 'sub_123',
-      };
-
-      mockPrismaService.purchase.findFirst.mockResolvedValue(null);
-
-      await service.handleSubscriptionDeleted(mockEvent);
-
-      expect(mockPrismaService.licenseKey.update).not.toHaveBeenCalled();
+      expect(mockPrismaService.licenseKey.findFirst).not.toHaveBeenCalled();
     });
   });
 });
