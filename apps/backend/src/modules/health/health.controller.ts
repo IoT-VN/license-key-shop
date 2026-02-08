@@ -16,8 +16,8 @@ export class HealthController {
 
   @Get()
   async health() {
-    const dbHealth = await this.getDatabaseHealth();
-    const redisHealth = await this.redis.getHealthStatus();
+    const dbHealth = await this.withTimeout(this.getDatabaseHealth(), 2000, 'database');
+    const redisHealth = await this.withTimeout(this.redis.getHealthStatus(), 2000, 'redis');
 
     const overallStatus = dbHealth.status === 'up' && redisHealth.status === 'up' ? 'ok' : 'degraded';
 
@@ -53,6 +53,21 @@ export class HealthController {
         status: 'down',
         error: error instanceof Error ? error.message : 'Unknown error',
       };
+    }
+  }
+
+  private async withTimeout<T>(promise: Promise<T>, timeoutMs: number, service: string): Promise<T> {
+    const timeout = new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${service} health check timed out after ${timeoutMs}ms`)), timeoutMs),
+    );
+
+    try {
+      return await Promise.race([promise, timeout]);
+    } catch (error) {
+      return {
+        status: 'down',
+        error: error instanceof Error ? error.message : 'Unknown error',
+      } as T;
     }
   }
 }

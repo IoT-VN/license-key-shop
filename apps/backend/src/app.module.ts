@@ -7,6 +7,7 @@ import { AppConfigModule } from './common/config/config.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { RedisModule } from './modules/redis/redis.module';
 import { HealthModule } from './modules/health/health.module';
+import { MetricsModule } from './modules/metrics/metrics.module';
 import { ClerkModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { LicenseKeysModule } from './modules/license-keys/license-keys.module';
@@ -34,6 +35,7 @@ import { SecurityModule } from './modules/security/security.module';
     DatabaseModule,
     RedisModule,
     HealthModule,
+    MetricsModule,
     SecurityModule,
 
     // Authentication & Users

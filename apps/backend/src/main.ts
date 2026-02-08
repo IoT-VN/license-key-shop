@@ -81,6 +81,18 @@ async function bootstrap() {
   logger.log(`API Documentation: http://localhost:${port}/api/docs`);
   logger.log(`Environment: ${process.env.NODE_ENV}`);
   logger.log(`CORS enabled for: ${frontendUrl}`);
+
+  // Graceful shutdown handlers
+  const gracefulShutdown = async (signal: string) => {
+    logger.log(`Received ${signal}, starting graceful shutdown...`);
+    await app.close();
+    logger.log('Application closed successfully');
+    process.exit(0);
+  };
+
+  process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+  process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 }
 
 bootstrap();
+

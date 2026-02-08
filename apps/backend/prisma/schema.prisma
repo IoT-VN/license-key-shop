@@ -139,21 +139,28 @@ model LicenseKey {
 
 /// Purchase records with payment references
 model Purchase {
-  id               String         @id @default(cuid())
-  userId           String
-  user             User           @relation(fields: [userId], references: [id])
-  productId        String
-  product          Product        @relation(fields: [productId], references: [id])
-  stripePaymentId  String?        @unique
-  stripeInvoiceId  String?
-  stripeSubscriptionId String?    // For subscription billing
-  amount           Decimal        @db.Decimal(10, 2)
-  currency         String         @default("USD")
-  status           PurchaseStatus @default(PENDING)
-  licenseKey       LicenseKey?    @relation
-  metadata         Json?
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
+  id                    String         @id @default(cuid())
+  userId                String
+  user                  User           @relation(fields: [userId], references: [id])
+  productId             String
+  product               Product        @relation(fields: [productId], references: [id])
+
+  // Stripe fields (legacy - kept for migration)
+  stripePaymentId       String?        @unique
+  stripeInvoiceId       String?
+  stripeSubscriptionId  String?
+
+  // SePay fields
+  sepayTransactionId    String?        @unique
+
+  amount                Decimal        @db.Decimal(10, 2)
+  currency              String         @default("VND")
+  status                PurchaseStatus @default(PENDING)
+  licenseKey            LicenseKey?    @relation
+  metadata              Json?
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  completedAt           DateTime?
 
   // Relations
   transactions Transaction[]
@@ -161,6 +168,7 @@ model Purchase {
 
   @@index([userId])
   @@index([stripePaymentId])
+  @@index([sepayTransactionId])
   @@index([status])
   @@index([stripeSubscriptionId])
   @@map("purchases")
@@ -173,8 +181,12 @@ model Transaction {
   purchase   Purchase        @relation(fields: [purchaseId], references: [id])
   type       TransactionType
   amount     Decimal         @db.Decimal(10, 2)
-  currency   String          @default("USD")
-  stripeTxId String?
+  currency   String          @default("VND")
+
+  // Payment provider fields
+  stripeTxId String?         // Legacy Stripe field
+  sepayTxId  String?         // SePay transaction reference
+
   metadata   Json?
   createdAt  DateTime        @default(now())
 
@@ -189,8 +201,12 @@ model Refund {
   purchaseId    String       @unique
   purchase      Purchase     @relation(fields: [purchaseId], references: [id])
   amount        Decimal      @db.Decimal(10, 2)
-  currency      String       @default("USD")
-  stripeRefundId String?     @unique
+  currency      String       @default("VND")
+
+  // Payment provider fields
+  stripeRefundId String?     @unique // Legacy Stripe field
+  sepayRefundId  String?     // SePay refund reference
+
   reason        String?
   status        RefundStatus @default(PENDING)
   metadata      Json?
