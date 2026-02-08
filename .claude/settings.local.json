@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "WebSearch",
+      "Bash(grep:*)",
+      "Bash(pnpm create:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm exec nest:*)",
+      "Bash(npx -y @nestjs/cli:*)",
+      "Bash(npx:*)",
+      "Bash(docker-compose:*)",
+      "Bash(docker compose up:*)",
+      "Bash(npm run build:*)",
+      "Bash(pnpm install)",
+      "Bash(test:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm list:*)",
+      "Bash(pnpm test:*)",
+      "Bash(npm install:*)",
+      "Bash(dir:*)",
+      "Bash(npm test)",
+      "Bash(find:*)",
+      "Bash(npm run test:cov:*)",
+      "Bash(npm run test:e2e:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm exec playwright install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

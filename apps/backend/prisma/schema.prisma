@@ -1,0 +1,261 @@
+// Prisma Schema for License Key Shop
+// Database: PostgreSQL
+// ORM: Prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+enum KeyStatus {
+  AVAILABLE  // Pre-generated, not sold
+  SOLD       // Sold to customer
+  ACTIVE     // Activated by customer
+  REVOKED    // Revoked by admin
+  EXPIRED    // Past validity period
+}
+
+enum PurchaseStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum TransactionType {
+  PAYMENT
+  REFUND
+  CHARGEBACK
+}
+
+enum RefundStatus {
+  PENDING
+  PROCESSED
+  FAILED
+}
+
+enum EventType {
+  RATE_LIMIT_EXCEEDED
+  IP_BLOCKED
+  SUSPICIOUS_ACTIVITY
+  FRAUD_DETECTED
+  AUTHENTICATION_FAILED
+  API_KEY_ABUSE
+  DUPLICATE_PURCHASE
+  PAYMENT_FAILED
+}
+
+enum Severity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// ============================================
+// MODELS
+// ============================================
+
+/// User accounts linked to Clerk authentication
+model User {
+  id        String    @id @default(cuid())
+  clerkId   String    @unique // External auth from Clerk
+  email     String    @unique
+  name      String?
+  role      UserRole  @default(CUSTOMER)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // Relations
+  purchases Purchase[]
+  apiKeys   ApiKey[]
+
+  @@index([clerkId])
+  @@map("users")
+}
+
+/// Product catalog with pricing tiers
+model Product {
+  id             String   @id @default(cuid())
+  name           String
+  description    String   @db.Text
+  price          Decimal  @db.Decimal(10, 2)
+  currency       String   @default("USD")
+  isActive       Boolean  @default(true)
+  maxActivations Int      @default(1)
+  validityDays   Int?     // Null = lifetime license
+  metadata       Json?    // Flexible features, version info
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  stripePriceId  String?  @unique // Stripe Price ID for subscriptions
+
+  // Relations
+  licenseKeys LicenseKey[]
+  purchases   Purchase[]
+
+  @@index([isActive])
+  @@map("products")
+}
+
+/// License keys with cryptographic signatures
+model LicenseKey {
+  id           String     @id @default(cuid())
+  keyString    String     @unique // Display key (XXXX-XXXX-XXXX-XXXX)
+  signature    String     @db.Text // ECDSA signature for verification
+  productId    String
+  product      Product    @relation(fields: [productId], references: [id])
+  status       KeyStatus  @default(AVAILABLE)
+  purchaseId   String?    @unique // Null until sold
+  purchase     Purchase?  @relation(fields: [purchaseId], references: [id])
+  activations  Int        @default(0)
+  maxActivations Int
+  expiresAt    DateTime?
+  revokedAt    DateTime?
+  revokedReason String?
+  metadata     Json?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  // Relations
+  validationLogs ValidationLog[]
+
+  @@index([keyString])
+  @@index([productId, status])
+  @@index([purchaseId])
+  @@map("license_keys")
+}
+
+/// Purchase records with payment references
+model Purchase {
+  id               String         @id @default(cuid())
+  userId           String
+  user             User           @relation(fields: [userId], references: [id])
+  productId        String
+  product          Product        @relation(fields: [productId], references: [id])
+  stripePaymentId  String?        @unique
+  stripeInvoiceId  String?
+  stripeSubscriptionId String?    // For subscription billing
+  amount           Decimal        @db.Decimal(10, 2)
+  currency         String         @default("USD")
+  status           PurchaseStatus @default(PENDING)
+  licenseKey       LicenseKey?    @relation
+  metadata         Json?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  // Relations
+  transactions Transaction[]
+  refund        Refund?
+
+  @@index([userId])
+  @@index([stripePaymentId])
+  @@index([status])
+  @@index([stripeSubscriptionId])
+  @@map("purchases")
+}
+
+/// Transaction history with audit trails
+model Transaction {
+  id         String          @id @default(cuid())
+  purchaseId String
+  purchase   Purchase        @relation(fields: [purchaseId], references: [id])
+  type       TransactionType
+  amount     Decimal         @db.Decimal(10, 2)
+  currency   String          @default("USD")
+  stripeTxId String?
+  metadata   Json?
+  createdAt  DateTime        @default(now())
+
+  @@index([purchaseId])
+  @@index([type])
+  @@map("transactions")
+}
+
+/// Refund records
+model Refund {
+  id            String       @id @default(cuid())
+  purchaseId    String       @unique
+  purchase      Purchase     @relation(fields: [purchaseId], references: [id])
+  amount        Decimal      @db.Decimal(10, 2)
+  currency      String       @default("USD")
+  stripeRefundId String?     @unique
+  reason        String?
+  status        RefundStatus @default(PENDING)
+  metadata      Json?
+  createdAt     DateTime     @default(now())
+  processedAt   DateTime?
+
+  @@index([status])
+  @@map("refunds")
+}
+
+/// API keys for third-party validation access
+model ApiKey {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  keyHash   String    @unique // SHA-256 hash of actual key
+  name      String
+  lastUsed  DateTime?
+  isActive  Boolean   @default(true)
+  rateLimit Int       @default(10000) // Requests per hour (generous initial limit)
+  metadata  Json?
+  createdAt DateTime  @default(now())
+  expiresAt DateTime?
+  revokedAt DateTime?
+
+  @@index([userId])
+  @@index([keyHash])
+  @@index([isActive])
+  @@map("api_keys")
+}
+
+/// Validation logs for audit trails
+model ValidationLog {
+  id               String     @id @default(cuid())
+  licenseKeyId     String
+  licenseKey       LicenseKey @relation(fields: [licenseKeyId], references: [id])
+  apiKeyId         String?
+  isValid          Boolean
+  validationReason String?
+  ipAddress        String?
+  userAgent        String?
+  metadata         Json?
+  createdAt        DateTime   @default(now())
+
+  @@index([licenseKeyId])
+  @@index([createdAt])
+  @@index([apiKeyId])
+  @@map("validation_logs")
+}
+
+/// Security events for monitoring and audit trails
+model SecurityEvent {
+  id          String     @id @default(cuid())
+  type        EventType
+  severity    Severity
+  ipAddress   String?
+  userId      String?
+  apiKeyId    String?
+  description String     @db.Text
+  metadata    Json?
+  createdAt   DateTime   @default(now())
+
+  @@index([type, createdAt])
+  @@index([severity])
+  @@index([ipAddress])
+  @@index([userId])
+  @@map("security_events")
+}

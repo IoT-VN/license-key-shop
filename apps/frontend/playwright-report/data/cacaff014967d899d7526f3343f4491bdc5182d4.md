@@ -1,0 +1,65 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - navigation [ref=e7]:
+            - button "previous" [disabled] [ref=e8]:
+              - img "previous" [ref=e9]
+            - generic [ref=e11]:
+              - generic [ref=e12]: 1/
+              - text: "1"
+            - button "next" [disabled] [ref=e13]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - generic "Latest available version is detected (16.1.6)." [ref=e20]: Next.js 16.1.6
+            - generic [ref=e21]: Turbopack
+          - img
+      - dialog "Runtime Error" [ref=e23]:
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - generic [ref=e28]:
+              - generic [ref=e29]:
+                - generic [ref=e30]: Runtime Error
+                - generic [ref=e31]: Server
+              - generic [ref=e32]:
+                - button "Copy Error Info" [ref=e33] [cursor=pointer]:
+                  - img [ref=e34]
+                - button "No related documentation found" [disabled] [ref=e36]:
+                  - img [ref=e37]
+                - button "Attach Node.js inspector" [ref=e39] [cursor=pointer]:
+                  - img [ref=e40]
+            - generic [ref=e52]:
+              - text: "Clerk: auth() was called but Clerk can't detect usage of clerkMiddleware(). Please ensure the following: - Your Middleware exists at ./middleware.(ts|js) or proxy.(ts|js) - clerkMiddleware() is used in your Next.js Middleware. - Your Middleware matcher is configured to match this route or page. - If you are using the src directory, make sure the Middleware file is inside of it. For more details, see"
+              - link "https://clerk.com/err/auth-middleware" [ref=e53]:
+                - /url: https://clerk.com/err/auth-middleware
+          - generic [ref=e56]:
+            - paragraph [ref=e57]:
+              - text: Call Stack
+              - generic [ref=e58]: "5"
+            - button "Show 5 ignore-listed frame(s)" [ref=e59] [cursor=pointer]:
+              - text: Show 5 ignore-listed frame(s)
+              - img [ref=e60]
+        - generic [ref=e62]: "1"
+        - generic [ref=e63]: "2"
+    - generic [ref=e68] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e69]:
+        - img [ref=e70]
+      - generic [ref=e75]:
+        - button "Open issues overlay" [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]: "0"
+            - generic [ref=e79]: "1"
+          - generic [ref=e80]: Issue
+        - button "Collapse issues badge" [ref=e81]:
+          - img [ref=e82]
+  - generic [ref=e85]:
+    - 'heading "Application error: a server-side exception has occurred while loading localhost (see the server logs for more information)." [level=2] [ref=e86]'
+    - paragraph [ref=e87]: "Digest: 1261749621"
+```

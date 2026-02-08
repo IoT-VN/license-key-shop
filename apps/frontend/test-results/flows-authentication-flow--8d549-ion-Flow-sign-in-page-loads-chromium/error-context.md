@@ -1,0 +1,83 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [active]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - navigation [ref=e7]:
+            - button "previous" [disabled] [ref=e8]:
+              - img "previous" [ref=e9]
+            - generic [ref=e11]:
+              - generic [ref=e12]: 1/
+              - text: "1"
+            - button "next" [disabled] [ref=e13]:
+              - img "next" [ref=e14]
+          - img
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - generic "Latest available version is detected (16.1.6)." [ref=e20]: Next.js 16.1.6
+            - generic [ref=e21]: Turbopack
+          - img
+      - dialog "Runtime Error" [ref=e23]:
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - generic [ref=e28]:
+              - generic [ref=e30]: Runtime Error
+              - generic [ref=e31]:
+                - button "Copy Error Info" [ref=e32] [cursor=pointer]:
+                  - img [ref=e33]
+                - button "No related documentation found" [disabled] [ref=e35]:
+                  - img [ref=e36]
+                - button "Attach Node.js inspector" [ref=e38] [cursor=pointer]:
+                  - img [ref=e39]
+            - generic [ref=e48]:
+              - text: "useSession can only be used within the <ClerkProvider /> component. Possible fixes: 1. Ensure that the <ClerkProvider /> is correctly wrapping your application where this component is used. 2. Check for multiple versions of the `@clerk/shared` package in your project. Use a tool like `npm ls @clerk/shared` to identify multiple versions, and update your dependencies to only rely on one. Learn more:"
+              - link "https://clerk.com/docs/components/clerk-provider" [ref=e49] [cursor=pointer]:
+                - /url: https://clerk.com/docs/components/clerk-provider
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - paragraph [ref=e53]:
+                - img [ref=e55]
+                - generic [ref=e58]: app\sign-in\[[...sign-in]]\page.tsx (10:7) @ Page
+                - button "Open in editor" [ref=e59] [cursor=pointer]:
+                  - img [ref=e61]
+              - generic [ref=e64]:
+                - generic [ref=e65]: 8 | return (
+                - generic [ref=e66]: 9 | <div className="flex min-h-screen items-center justify-center bg-gray-50">
+                - generic [ref=e67]: "> 10 | <SignIn />"
+                - generic [ref=e68]: "| ^"
+                - generic [ref=e69]: 11 | </div>
+                - generic [ref=e70]: 12 | );
+                - generic [ref=e71]: "13 | }"
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - paragraph [ref=e74]:
+                  - text: Call Stack
+                  - generic [ref=e75]: "17"
+                - button "Show 16 ignore-listed frame(s)" [ref=e76] [cursor=pointer]:
+                  - text: Show 16 ignore-listed frame(s)
+                  - img [ref=e77]
+              - generic [ref=e79]:
+                - generic [ref=e80]:
+                  - text: Page
+                  - button "Open Page in editor" [ref=e81] [cursor=pointer]:
+                    - img [ref=e82]
+                - text: app\sign-in\[[...sign-in]]\page.tsx (10:7)
+        - generic [ref=e84]: "1"
+        - generic [ref=e85]: "2"
+    - generic [ref=e90] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e91]:
+        - img [ref=e92]
+      - generic [ref=e95]:
+        - button "Open issues overlay" [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]: "0"
+            - generic [ref=e99]: "1"
+          - generic [ref=e100]: Issue
+        - button "Collapse issues badge" [ref=e101]:
+          - img [ref=e102]
+  - 'heading "Application error: a client-side exception has occurred while loading localhost (see the browser console for more information)." [level=2] [ref=e106]'
+```
