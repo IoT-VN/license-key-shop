@@ -56,7 +56,7 @@ export class RedisService extends Redis implements OnModuleInit, OnModuleDestroy
   /**
    * Set cache with TTL
    */
-  async setCache(key: string, value: any, ttlSeconds?: number): Promise<void> {
+  async setCache(key: string, value: unknown, ttlSeconds?: number): Promise<void> {
     const serialized = JSON.stringify(value);
     if (ttlSeconds) {
       await this.setex(key, ttlSeconds, serialized);

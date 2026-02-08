@@ -20,6 +20,8 @@ describe('ValidationService', () => {
     },
     validationLog: {
       create: jest.fn(),
+      count: jest.fn(),
+      findMany: jest.fn(),
     },
   };
 

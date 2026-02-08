@@ -3,6 +3,7 @@ import { PrismaService } from "../database/prisma.service";
 import { StripeService } from "./stripe.service";
 import { ConfigService } from "@nestjs/config";
 import { randomUUID } from "crypto";
+import { StripeMetadata } from "../../common/types/metadata.types";
 
 /**
  * Payments service
@@ -114,8 +115,8 @@ export class PaymentsService {
       sessionId: session.id,
       status: session.status,
       paymentStatus: session.payment_status,
-      purchaseId: purchase?.id,
-      licenseKey: purchase?.licenseKey?.keyString,
+      purchaseId: purchase?.id ?? null,
+      licenseKey: purchase?.licenseKey?.keyString ?? null,
     };
   }
 
@@ -195,7 +196,12 @@ export class PaymentsService {
   /**
    * Handle checkout.session.completed webhook
    */
-  async handleCheckoutCompleted(event: any) {
+  async handleCheckoutCompleted(event: {
+    metadata: StripeMetadata;
+    payment_intent?: string;
+    customer_details?: { email?: string };
+    subscription?: string;
+  }) {
     const { metadata, payment_intent, customer_details, subscription } = event;
 
     if (!metadata?.productId || !metadata?.userId) {
@@ -297,7 +303,11 @@ export class PaymentsService {
   /**
    * Handle invoice.paid (subscription renewal)
    */
-  async handleInvoicePaid(event: any) {
+  async handleInvoicePaid(event: {
+    subscription?: string;
+    customer?: string;
+    payment_intent?: string;
+  }) {
     const { subscription, customer, payment_intent } = event;
 
     if (!subscription) {

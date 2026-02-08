@@ -12,12 +12,14 @@ describe('CryptoService', () => {
   let originalEnv: NodeJS.ProcessEnv;
 
   const mockPrivateKey = `-----BEGIN EC PRIVATE KEY-----
-MHcCAQEEIEKY4RmYYfA7Z9h4JlP+5Bm+5Bm+5Bm+5Bm+5Bm+5Bm+5Bm+5B
-oAoGCCqGSM49AwEHoUQDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ7QZ7QZ7QZ7Q
+MHcCAQEEIC0x0bEjmNhNn4lW3a4CTWVkaW/xi8/D0vzp6K4kxmQ5oAoGCCqGSM49
+AwEHoUQDQgAEiJKYZ0Gjtkrfzu2j5IHQW7e2yfODfyjjVlFh1Monr3F2MxSIX5wL
+QW2NXdbEFQa4WVkyHpEHP+wwiVPUiHA2Lg==
 -----END EC PRIVATE KEY-----`;
 
   const mockPublicKey = `-----BEGIN PUBLIC KEY-----
-MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEiJKYZ0Gjtkrfzu2j5IHQW7e2yfOD
+fyjjVlFh1Monr3F2MxSIX5wLQW2NXdbEFQa4WVkyHpEHP+wwiVPUiHA2Lg==
 -----END PUBLIC KEY-----`;
 
   beforeEach(() => {
@@ -52,7 +54,7 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
 
     it('should throw error if HMAC_SECRET not set', () => {
       delete process.env.HMAC_SECRET;
-      expect(() => new CryptoService()).toThrow('HMAC_SECRET must be set');
+      expect(() => new CryptoService()).toThrow('Cryptographic service initialization failed');
     });
 
     it('should throw error if private key not found', () => {
@@ -60,7 +62,7 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
       mockedFs.readFileSync.mockImplementation(() => {
         throw new Error('File not found');
       });
-      expect(() => new CryptoService()).toThrow('Private key not found');
+      expect(() => new CryptoService()).toThrow('Cryptographic service initialization failed');
     });
   });
 
@@ -88,12 +90,17 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
       expect(signature1).not.toBe(signature2);
     });
 
-    it('should generate consistent signatures for same data', () => {
+    it('should generate different signatures for same data (ECDSA non-determinism)', () => {
       const data = 'test-data';
       const signature1 = service.sign(data);
       const signature2 = service.sign(data);
 
-      expect(signature1).toBe(signature2);
+      // ECDSA signatures are non-deterministic - they should be different
+      expect(signature1).not.toBe(signature2);
+
+      // But both should verify correctly
+      expect(service.verifySignature(data, signature1)).toBe(true);
+      expect(service.verifySignature(data, signature2)).toBe(true);
     });
 
     it('should handle empty string', () => {
@@ -137,9 +144,11 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
 
     it('should reject tampered signature', () => {
       const data = 'test-data';
-      const signature = service.sign(data) + 'tampered';
+      const signature = service.sign(data);
 
-      const isValid = service.verifySignature(data, signature);
+      // Tamper with the signature by modifying a character
+      const tamperedSignature = signature.slice(0, -10) + 'tampered';
+      const isValid = service.verifySignature(data, tamperedSignature);
       expect(isValid).toBe(false);
     });
 
@@ -223,7 +232,9 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
 
       expect(combined).toBeDefined();
       expect(typeof combined).toBe('string');
-      expect(combined).toMatch(/^\w+\.\w+$/); // signature.hmac format
+      // Combined signature is base64 signature + '.' + base64 HMAC
+      // Base64 can contain +, /, = characters, not just \w
+      expect(combined).toMatch(/^[A-Za-z0-9+/=]+\.[A-Za-z0-9+/=]+$/);
     });
 
     it('should be verifiable with verifyCombined', () => {
@@ -301,13 +312,17 @@ MFkwEQYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8Z7QZ7QZ7QZ7QZ7QZ7QZ7QZ
       expect(Math.max(time1, time2) / Math.min(time1, time2)).toBeLessThan(10);
     });
 
-    it('should produce deterministic signatures', () => {
+    it('should produce non-deterministic but verifiable signatures', () => {
       const data = 'test-data';
       const signatures = Array.from({ length: 10 }, () => service.sign(data));
 
-      // All signatures should be identical
+      // ECDSA signatures are non-deterministic - they should be different
+      const uniqueSignatures = new Set(signatures);
+      expect(uniqueSignatures.size).toBeGreaterThan(1);
+
+      // But all should verify correctly
       signatures.forEach(sig => {
-        expect(sig).toBe(signatures[0]);
+        expect(service.verifySignature(data, sig)).toBe(true);
       });
     });
 

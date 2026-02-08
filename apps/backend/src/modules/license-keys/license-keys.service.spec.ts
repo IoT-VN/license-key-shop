@@ -341,6 +341,7 @@ describe('LicenseKeysService', () => {
         maxActivations: 3,
         activations: 1,
         expiresAt: futureDate,
+        productId: 'prod-123',
         product: {
           id: 'prod-123',
           name: 'Test Product',

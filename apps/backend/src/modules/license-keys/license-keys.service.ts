@@ -4,6 +4,7 @@ import { CryptoService } from './crypto.service';
 import { KeyGeneratorService } from './key-generator.service';
 import { KeyStatus } from '@prisma/client';
 import { addDays } from 'date-fns';
+import { ProductMetadata } from '../../common/types/metadata.types';
 
 /**
  * License keys service
@@ -216,7 +217,7 @@ export class LicenseKeysService {
       status: licenseKey.status,
       activationsRemaining,
       expiresAt: licenseKey.expiresAt,
-      features: licenseKey.product.metadata as any,
+      features: licenseKey.product.metadata as ProductMetadata,
       validatedAt: new Date(),
     };
   }
@@ -301,7 +302,7 @@ export class LicenseKeysService {
   }) {
     const { productId, status, page = 1, limit = 20, sortBy = 'createdAt', sortOrder = 'desc' } = params;
 
-    const where: any = {};
+    const where: { productId?: string; status?: KeyStatus } = {};
     if (productId) where.productId = productId;
     if (status) where.status = status;
 

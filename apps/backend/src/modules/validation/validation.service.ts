@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { LicenseKeysService } from '../license-keys/license-keys.service';
 import { PrismaService } from '../database/prisma.service';
 import { RedisService } from '../redis/redis.service';
+import { ValidationMetadata } from '../../common/types/metadata.types';
 
 @Injectable()
 export class ValidationService {
@@ -19,11 +20,11 @@ export class ValidationService {
   async validateKey(
     keyString: string,
     apiKeyId: string,
-    metadata?: { ipAddress?: string; userAgent?: string },
+    metadata?: ValidationMetadata,
   ) {
     // Check cache first
     const cacheKey = `validation:${keyString}`;
-    const cached = await this.redis.getCache<any>(cacheKey);
+    const cached = await this.redis.getCache<Record<string, unknown>>(cacheKey);
 
     if (cached) {
       this.logger.debug(`Cache hit for key ${keyString}`);
@@ -49,7 +50,7 @@ export class ValidationService {
           validationReason: result.reason || result.status,
           ipAddress: metadata?.ipAddress,
           userAgent: metadata?.userAgent,
-          metadata: result as any,
+          metadata: result as Record<string, unknown>,
         },
       });
     }
@@ -64,15 +65,20 @@ export class ValidationService {
    * Invalidate validation cache
    */
   async invalidateCache(keyString: string): Promise<void> {
-    const cacheKey = `validation:${keyString}`;
-    await this.redis.deleteCache(cacheKey);
+    try {
+      const cacheKey = `validation:${keyString}`;
+      await this.redis.deleteCache(cacheKey);
+    } catch (error) {
+      // Log but don't throw - cache failures shouldn't break the application
+      this.logger.warn(`Failed to invalidate cache for key ${keyString}: ${error.message}`);
+    }
   }
 
   /**
    * Get validation stats
    */
   async getValidationStats(apiKeyId: string, timeRange?: { from: Date; to: Date }) {
-    const where: any = { apiKeyId };
+    const where: { apiKeyId: string; createdAt?: { gte?: Date; lte?: Date } } = { apiKeyId };
 
     if (timeRange) {
       where.createdAt = {

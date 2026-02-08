@@ -141,8 +141,8 @@ export class CryptoService {
     try {
       return readFileSync(keyPath, 'utf-8');
     } catch (error) {
-      this.logger.error(`Failed to load private key from ${keyPath}`);
-      throw new Error('Private key not found. Set LICENSE_PRIVATE_KEY or PRIVATE_KEY_PATH');
+      this.logger.error(`Failed to load private key from ${keyPath}`, error);
+      throw new Error('Cryptographic service initialization failed');
     }
   }
 
@@ -159,8 +159,8 @@ export class CryptoService {
     try {
       return readFileSync(keyPath, 'utf-8');
     } catch (error) {
-      this.logger.error(`Failed to load public key from ${keyPath}`);
-      throw new Error('Public key not found. Set LICENSE_PUBLIC_KEY or PUBLIC_KEY_PATH');
+      this.logger.error(`Failed to load public key from ${keyPath}`, error);
+      throw new Error('Cryptographic service initialization failed');
     }
   }
 
@@ -170,8 +170,8 @@ export class CryptoService {
   private loadHmacSecret(): string {
     const secret = process.env.HMAC_SECRET;
     if (!secret) {
-      this.logger.error('HMAC_SECRET not set in environment');
-      throw new Error('HMAC_SECRET must be set in environment');
+      this.logger.error('HMAC secret not configured');
+      throw new Error('Cryptographic service initialization failed');
     }
     return secret;
   }
