@@ -27,26 +27,33 @@ export class EnvValidationSchema {
   CLERK_SECRET_KEY: string;
 
   @IsString()
-  CLERK_WEBHOOK_SECRET: string;
+  @IsOptional()
+  CLERK_WEBHOOK_SECRET?: string;
 
   @IsString()
   @IsOptional()
   CLERK_JWT_PUBLIC_KEY?: string;
 
-  // Stripe
+  // SePay
   @IsString()
-  STRIPE_SECRET_KEY: string;
-
-  @IsString()
-  STRIPE_WEBHOOK_SECRET: string;
+  @IsOptional()
+  SEPAY_API_KEY?: string;
 
   @IsString()
   @IsOptional()
-  STRIPE_TAX_ID?: string;
+  SEPAY_API_URL?: string;
 
   @IsString()
   @IsOptional()
-  STRIPE_WEBHOOK_ENDPOINT?: string;
+  SEPAY_BANK_ACCOUNT?: string;
+
+  @IsString()
+  @IsOptional()
+  SEPAY_BANK_CODE?: string;
+
+  @IsString()
+  @IsOptional()
+  SEPAY_QR_URL?: string;
 
   // CORS
   @IsString()

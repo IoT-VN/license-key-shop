@@ -32,8 +32,9 @@ CLERK_SECRET_KEY=sk_live_XXXXX
 CLERK_WEBHOOK_SECRET=whsec_XXXXX
 CLERK_JWT_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\n..."
 
-# Add your Stripe credentials:
-STRIPE_SECRET_KEY=sk_live_XXXXX
-STRIPE_WEBHOOK_SECRET=whsec_XXXXX
-STRIPE_TAX_ID=tax_XXXXX
-STRIPE_WEBHOOK_ENDPOINT=https://your-backend.railway.app/webhooks/stripe
+# SePay Payment Gateway (Vietnamese banks/VietQR)
+SEPAY_API_KEY=your-sepay-api-key
+SEPAY_API_URL=https://my.sepay.vn/userapi
+SEPAY_BANK_ACCOUNT=1234567890
+SEPAY_BANK_CODE=VCB
+SEPAY_QR_URL=https://qr.sepay.vn/img

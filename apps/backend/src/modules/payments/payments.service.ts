@@ -329,10 +329,10 @@ export class PaymentsService {
   }
 
   /**
-   * Handle charge.refunded - Not supported for SePay
+   * Handle charge.refunded - Manual refund for SePay
    */
   async handleChargeRefunded(_event: any) {
-    this.logger.warn("Stripe webhook handling not supported for SePay payments");
+    this.logger.warn("Automatic refunds not supported for SePay payments. Use manual refund process.");
     return;
   }
 

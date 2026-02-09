@@ -1,7 +1,7 @@
 import { IsString, IsNotEmpty } from "class-validator";
 
 /**
- * DTO for Stripe webhook events
+ * DTO for SePay webhook events
  */
 export class WebhookDto {
   @IsString()
@@ -10,5 +10,5 @@ export class WebhookDto {
 
   @IsString()
   @IsNotEmpty()
-  signature: string; // Stripe signature from headers
+  authorization: string; // SePay API key from headers
 }
