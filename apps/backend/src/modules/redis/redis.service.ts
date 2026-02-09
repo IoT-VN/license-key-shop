@@ -16,7 +16,6 @@ export class RedisService extends Redis implements OnModuleInit, OnModuleDestroy
     const redisUrl = process.env.REDIS_URL;
 
     if (!redisUrl || redisUrl === 'redis://localhost:6379') {
-      this.logger.warn('Redis not configured - running without caching');
       super({ lazyConnect: true });
       this.redisEnabled = false;
       return;
@@ -52,7 +51,6 @@ export class RedisService extends Redis implements OnModuleInit, OnModuleDestroy
 
   async onModuleInit() {
     if (!this.redisEnabled) {
-      this.logger.warn('Redis disabled - running without caching');
       return;
     }
 
@@ -60,7 +58,7 @@ export class RedisService extends Redis implements OnModuleInit, OnModuleDestroy
       await this.ping();
       this.logger.log('Redis ping successful');
     } catch (error) {
-      this.logger.warn('Failed to ping Redis - running without caching', error.message);
+      this.logger.warn('Failed to ping Redis - running without caching');
       this.redisEnabled = false;
     }
   }
