@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.86% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>65/88</span>
+                <span class='fraction'>69/92</span>
             </div>
         
             
@@ -527,11 +527,22 @@
 <a name='L462'></a><a href='#L462'>462</a>
 <a name='L463'></a><a href='#L463'>463</a>
 <a name='L464'></a><a href='#L464'>464</a>
-<a name='L465'></a><a href='#L465'>465</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L465'></a><a href='#L465'>465</a>
+<a name='L466'></a><a href='#L466'>466</a>
+<a name='L467'></a><a href='#L467'>467</a>
+<a name='L468'></a><a href='#L468'>468</a>
+<a name='L469'></a><a href='#L469'>469</a>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -725,21 +736,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -821,6 +837,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -996,6 +1016,7 @@ import { PrismaService } from "../database/prisma.service";
 import { StripeService } from "./stripe.service";
 import { ConfigService } from "@nestjs/config";
 import { randomUUID } from "crypto";
+import { StripeMetadata } from "../../common/types/metadata.types";
 &nbsp;
 /**
  * Payments service
@@ -1107,8 +1128,8 @@ export class PaymentsService {
       sessionId: session.id,
       status: session.status,
       paymentStatus: session.payment_status,
-      purchaseId: purchase?.id,
-      licenseKey: purchase?.licenseKey?.keyString,
+      purchaseId: purchase?.id ?? null,
+      licenseKey: purchase?.licenseKey?.keyString ?? null,
     };
   }
 &nbsp;
@@ -1188,7 +1209,12 @@ export class PaymentsService {
   /**
    * Handle checkout.session.completed webhook
    */
-  async handleCheckoutCompleted(event: any) {
+  async handleCheckoutCompleted(event: {
+    metadata: StripeMetadata;
+    payment_intent?: string;
+    customer_details?: { email?: string };
+    subscription?: string;
+  }) {
     const { metadata, payment_intent, customer_details, subscription } = event;
 &nbsp;
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!metadata?.productId || !metadata?.userId) {
@@ -1290,7 +1316,11 @@ export class PaymentsService {
   /**
    * Handle invoice.paid (subscription renewal)
    */
-  async handleInvoicePaid(event: any) {
+  async handleInvoicePaid(event: {
+    subscription?: string;
+    customer?: string;
+    payment_intent?: string;
+  }) {
     const { subscription, customer, payment_intent } = event;
 &nbsp;
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!subscription) {
@@ -1462,7 +1492,7 @@ export class PaymentsService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-08T13:12:25.001Z
+                at 2026-02-08T15:25:41.013Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

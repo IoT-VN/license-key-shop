@@ -1,0 +1,64 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic [active]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - navigation [ref=e6]:
+          - button "previous" [disabled] [ref=e7]:
+            - img "previous" [ref=e8]
+          - generic [ref=e10]:
+            - generic [ref=e11]: 1/
+            - text: "1"
+          - button "next" [disabled] [ref=e12]:
+            - img "next" [ref=e13]
+        - generic [ref=e16]:
+          - img [ref=e17]
+          - generic "Latest available version is detected (16.1.6)." [ref=e19]: Next.js 16.1.6
+          - generic [ref=e20]: Turbopack
+      - generic [ref=e21]:
+        - dialog "Runtime Error" [ref=e22]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]:
+                - generic [ref=e29]: Runtime Error
+                - generic [ref=e30]:
+                  - button "Copy Error Info" [ref=e31] [cursor=pointer]:
+                    - img [ref=e32]
+                  - button "No related documentation found" [disabled] [ref=e34]:
+                    - img [ref=e35]
+                  - button "Attach Node.js inspector" [ref=e37] [cursor=pointer]:
+                    - img [ref=e38]
+              - generic [ref=e50]: Publishable key not valid.
+            - generic [ref=e53]:
+              - paragraph [ref=e54]:
+                - text: Call Stack
+                - generic [ref=e55]: "10"
+              - button "Show 10 ignore-listed frame(s)" [ref=e56] [cursor=pointer]:
+                - text: Show 10 ignore-listed frame(s)
+                - img [ref=e57]
+          - generic [ref=e59]: "1"
+          - generic [ref=e60]: "2"
+        - contentinfo [ref=e61]:
+          - region "Error feedback" [ref=e62]:
+            - paragraph [ref=e63]:
+              - link "Was this helpful?" [ref=e64]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e65] [cursor=pointer]:
+              - img [ref=e66]
+            - button "Mark as not helpful" [ref=e69] [cursor=pointer]:
+              - img [ref=e70]
+    - generic [ref=e76] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e77]:
+        - img [ref=e78]
+      - generic [ref=e83]:
+        - button "Open issues overlay" [ref=e84]:
+          - generic [ref=e85]:
+            - generic [ref=e86]: "0"
+            - generic [ref=e87]: "1"
+          - generic [ref=e88]: Issue
+        - button "Collapse issues badge" [ref=e89]:
+          - img [ref=e90]
+  - alert [ref=e92]
+```

@@ -72,6 +72,6 @@ export class ValidationController {
     req.res?.setHeader('X-RateLimit-Remaining', rateLimitResult.remaining.toString());
     req.res?.setHeader('X-RateLimit-Reset', rateLimitResult.resetAt.toISOString());
 
-    return result;
+    return result as ValidationResultDto | RateLimitExceededDto;
   }
 }

@@ -1,0 +1,68 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - generic [active]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - navigation [ref=e6]:
+            - button "previous" [disabled] [ref=e7]:
+              - img "previous" [ref=e8]
+            - generic [ref=e10]:
+              - generic [ref=e11]: 1/
+              - text: "1"
+            - button "next" [disabled] [ref=e12]:
+              - img "next" [ref=e13]
+          - img
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - img [ref=e17]
+            - generic "Latest available version is detected (16.1.6)." [ref=e19]: Next.js 16.1.6
+            - generic [ref=e20]: Turbopack
+          - img
+      - generic [ref=e21]:
+        - dialog "Runtime Error" [ref=e22]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]:
+                - generic [ref=e29]: Runtime Error
+                - generic [ref=e30]:
+                  - button "Copy Error Info" [ref=e31] [cursor=pointer]:
+                    - img [ref=e32]
+                  - button "No related documentation found" [disabled] [ref=e34]:
+                    - img [ref=e35]
+                  - button "Attach Node.js inspector" [ref=e37] [cursor=pointer]:
+                    - img [ref=e38]
+              - generic [ref=e47]: Publishable key not valid.
+            - generic [ref=e50]:
+              - paragraph [ref=e51]:
+                - text: Call Stack
+                - generic [ref=e52]: "10"
+              - button "Show 10 ignore-listed frame(s)" [ref=e53] [cursor=pointer]:
+                - text: Show 10 ignore-listed frame(s)
+                - img [ref=e54]
+          - generic [ref=e56]: "1"
+          - generic [ref=e57]: "2"
+        - contentinfo [ref=e58]:
+          - region "Error feedback" [ref=e59]:
+            - paragraph [ref=e60]:
+              - link "Was this helpful?" [ref=e61] [cursor=pointer]:
+                - /url: https://nextjs.org/telemetry#error-feedback
+            - button "Mark as helpful" [ref=e62] [cursor=pointer]:
+              - img [ref=e63]
+            - button "Mark as not helpful" [ref=e66] [cursor=pointer]:
+              - img [ref=e67]
+    - generic [ref=e73] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e74]:
+        - img [ref=e75]
+      - generic [ref=e78]:
+        - button "Open issues overlay" [ref=e79]:
+          - generic [ref=e80]:
+            - generic [ref=e81]: "0"
+            - generic [ref=e82]: "1"
+          - generic [ref=e83]: Issue
+        - button "Collapse issues badge" [ref=e84]:
+          - img [ref=e85]
+  - alert [ref=e87]
+```

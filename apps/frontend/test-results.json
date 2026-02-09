@@ -164,7 +164,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 9690,
+                      "duration": 6316,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:7:24",
@@ -188,7 +188,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.805Z",
+                      "startTime": "2026-02-08T17:29:48.268Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -238,7 +238,7 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 9617,
+                      "duration": 6219,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:13:24",
@@ -262,7 +262,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.779Z",
+                      "startTime": "2026-02-08T17:29:48.323Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -322,12 +322,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "skipped",
-                      "duration": 325,
+                      "duration": 270,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.841Z",
+                      "startTime": "2026-02-08T17:29:48.280Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -366,7 +366,7 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 9433,
+                      "duration": 6277,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
@@ -390,7 +390,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.802Z",
+                      "startTime": "2026-02-08T17:29:48.291Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -437,10 +437,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 8,
+                      "workerIndex": 15,
+                      "parallelIndex": 6,
                       "status": "failed",
-                      "duration": 7180,
+                      "duration": 6204,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:7:24",
@@ -464,7 +464,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.320Z",
+                      "startTime": "2026-02-08T17:29:49.933Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -511,10 +511,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 2,
+                      "workerIndex": 16,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 7509,
+                      "duration": 6281,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:13:24",
@@ -538,7 +538,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.402Z",
+                      "startTime": "2026-02-08T17:29:49.974Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -595,15 +595,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 18,
-                      "parallelIndex": 4,
+                      "workerIndex": 17,
+                      "parallelIndex": 10,
                       "status": "skipped",
-                      "duration": 1521,
+                      "duration": 926,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:45.699Z",
+                      "startTime": "2026-02-08T17:29:50.804Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -639,10 +639,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 19,
-                      "parallelIndex": 7,
+                      "workerIndex": 18,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 6574,
+                      "duration": 6286,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
@@ -666,7 +666,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:45.736Z",
+                      "startTime": "2026-02-08T17:29:51.486Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -713,10 +713,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 31,
-                      "parallelIndex": 2,
+                      "workerIndex": 30,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 6370,
+                      "duration": 6066,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:7:24",
@@ -740,7 +740,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:54.184Z",
+                      "startTime": "2026-02-08T17:29:56.713Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -787,10 +787,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 32,
-                      "parallelIndex": 8,
+                      "workerIndex": 31,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 6265,
+                      "duration": 5999,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:13:24",
@@ -814,7 +814,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:54.232Z",
+                      "startTime": "2026-02-08T17:29:57.938Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -871,15 +871,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 33,
+                      "workerIndex": 32,
                       "parallelIndex": 11,
                       "status": "skipped",
-                      "duration": 509,
+                      "duration": 480,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:54.307Z",
+                      "startTime": "2026-02-08T17:29:58.255Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -915,13 +915,13 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 37,
-                      "parallelIndex": 4,
+                      "workerIndex": 34,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 6131,
+                      "duration": 5946,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts",
                           "column": 26,
@@ -936,13 +936,13 @@
                             "column": 26,
                             "line": 32
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  30 |     for (const route of protectedRoutes) {\n  31 |       await page.goto(route);\n> 32 |       await expect(page).toHaveURL(/\\/sign-in/);\n     |                          ^\n  33 |     }\n  34 |   });\n  35 | });\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  30 |     for (const route of protectedRoutes) {\n  31 |       await page.goto(route);\n> 32 |       await expect(page).toHaveURL(/\\/sign-in/);\n     |                          ^\n  33 |     }\n  34 |   });\n  35 | });\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:55.986Z",
+                      "startTime": "2026-02-08T17:29:59.759Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -989,10 +989,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 45,
-                      "parallelIndex": 8,
+                      "workerIndex": 44,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 5980,
+                      "duration": 5601,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:7:24",
@@ -1016,7 +1016,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:02.756Z",
+                      "startTime": "2026-02-08T17:30:05.001Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1063,10 +1063,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 46,
-                      "parallelIndex": 2,
+                      "workerIndex": 45,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5911,
+                      "duration": 5755,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:13:24",
@@ -1090,7 +1090,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:02.832Z",
+                      "startTime": "2026-02-08T17:30:05.082Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1147,15 +1147,15 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 47,
-                      "parallelIndex": 3,
+                      "workerIndex": 46,
+                      "parallelIndex": 0,
                       "status": "skipped",
-                      "duration": 256,
+                      "duration": 266,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:02.901Z",
+                      "startTime": "2026-02-08T17:30:05.113Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -1191,10 +1191,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 48,
-                      "parallelIndex": 5,
+                      "workerIndex": 47,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 5646,
+                      "duration": 5634,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
@@ -1218,7 +1218,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:03.025Z",
+                      "startTime": "2026-02-08T17:30:05.854Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1265,10 +1265,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 59,
-                      "parallelIndex": 6,
+                      "workerIndex": 58,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 5828,
+                      "duration": 5657,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign In/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:7:24",
@@ -1292,7 +1292,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:07.037Z",
+                      "startTime": "2026-02-08T17:30:10.062Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1339,10 +1339,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 60,
-                      "parallelIndex": 3,
+                      "workerIndex": 59,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5884,
+                      "duration": 5846,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/Sign Up/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:13:24",
@@ -1366,7 +1366,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:07.229Z",
+                      "startTime": "2026-02-08T17:30:10.392Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1423,15 +1423,15 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 61,
-                      "parallelIndex": 5,
+                      "workerIndex": 60,
+                      "parallelIndex": 3,
                       "status": "skipped",
-                      "duration": 274,
+                      "duration": 227,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:09.681Z",
+                      "startTime": "2026-02-08T17:30:11.646Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -1467,13 +1467,13 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 62,
-                      "parallelIndex": 8,
+                      "workerIndex": 61,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5650,
+                      "duration": 5643,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts",
                           "column": 26,
@@ -1488,13 +1488,13 @@
                             "column": 26,
                             "line": 32
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  30 |     for (const route of protectedRoutes) {\n  31 |       await page.goto(route);\n> 32 |       await expect(page).toHaveURL(/\\/sign-in/);\n     |                          ^\n  33 |     }\n  34 |   });\n  35 | });\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  30 |     for (const route of protectedRoutes) {\n  31 |       await page.goto(route);\n> 32 |       await expect(page).toHaveURL(/\\/sign-in/);\n     |                          ^\n  33 |     }\n  34 |   });\n  35 | });\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\authentication-flow.spec.ts:32:26"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:09.694Z",
+                      "startTime": "2026-02-08T17:30:11.873Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1561,7 +1561,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 332,
+                      "duration": 319,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:14:36",
@@ -1585,7 +1585,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.831Z",
+                      "startTime": "2026-02-08T17:29:48.305Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1619,7 +1619,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 323,
+                      "duration": 335,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:31:36",
@@ -1643,7 +1643,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.799Z",
+                      "startTime": "2026-02-08T17:29:48.292Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1677,7 +1677,7 @@
                       "workerIndex": 6,
                       "parallelIndex": 6,
                       "status": "failed",
-                      "duration": 332,
+                      "duration": 337,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:47:36",
@@ -1701,7 +1701,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.812Z",
+                      "startTime": "2026-02-08T17:29:48.310Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1735,7 +1735,7 @@
                       "workerIndex": 7,
                       "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 337,
+                      "duration": 324,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:57:36",
@@ -1759,7 +1759,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.830Z",
+                      "startTime": "2026-02-08T17:29:48.310Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1793,7 +1793,7 @@
                       "workerIndex": 8,
                       "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 370,
+                      "duration": 348,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at from (D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:77:15)\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:76:28",
@@ -1817,7 +1817,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.820Z",
+                      "startTime": "2026-02-08T17:29:48.345Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1848,10 +1848,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 20,
-                      "parallelIndex": 10,
+                      "workerIndex": 19,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 318,
+                      "duration": 321,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:14:36",
@@ -1875,7 +1875,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:48.625Z",
+                      "startTime": "2026-02-08T17:29:51.533Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1906,10 +1906,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 18,
-                      "parallelIndex": 4,
+                      "workerIndex": 20,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 346,
+                      "duration": 316,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:31:36",
@@ -1933,7 +1933,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:47.636Z",
+                      "startTime": "2026-02-08T17:29:53.044Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -1964,10 +1964,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 21,
-                      "parallelIndex": 4,
+                      "workerIndex": 17,
+                      "parallelIndex": 10,
                       "status": "failed",
-                      "duration": 324,
+                      "duration": 336,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:47:36",
@@ -1991,7 +1991,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:49.336Z",
+                      "startTime": "2026-02-08T17:29:52.155Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2022,10 +2022,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 22,
+                      "workerIndex": 21,
                       "parallelIndex": 10,
                       "status": "failed",
-                      "duration": 324,
+                      "duration": 326,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:57:36",
@@ -2049,7 +2049,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:49.832Z",
+                      "startTime": "2026-02-08T17:29:53.848Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2080,10 +2080,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 23,
-                      "parallelIndex": 4,
+                      "workerIndex": 22,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 337,
+                      "duration": 345,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at from (D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:77:15)\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:76:28",
@@ -2107,7 +2107,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:50.541Z",
+                      "startTime": "2026-02-08T17:29:54.235Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2138,10 +2138,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 34,
-                      "parallelIndex": 7,
+                      "workerIndex": 33,
+                      "parallelIndex": 6,
                       "status": "failed",
-                      "duration": 338,
+                      "duration": 337,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:14:36",
@@ -2165,7 +2165,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:55.483Z",
+                      "startTime": "2026-02-08T17:29:59.281Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2197,9 +2197,9 @@
                   "results": [
                     {
                       "workerIndex": 35,
-                      "parallelIndex": 1,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 336,
+                      "duration": 321,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:31:36",
@@ -2223,7 +2223,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:55.883Z",
+                      "startTime": "2026-02-08T17:29:59.909Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2254,10 +2254,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 36,
-                      "parallelIndex": 0,
+                      "workerIndex": 32,
+                      "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 331,
+                      "duration": 336,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:47:36",
@@ -2281,7 +2281,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:55.947Z",
+                      "startTime": "2026-02-08T17:29:58.817Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2312,10 +2312,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 33,
-                      "parallelIndex": 11,
+                      "workerIndex": 36,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 334,
+                      "duration": 329,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:57:36",
@@ -2339,7 +2339,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:54.911Z",
+                      "startTime": "2026-02-08T17:30:00.136Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2370,10 +2370,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 38,
+                      "workerIndex": 37,
                       "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 350,
+                      "duration": 340,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at from (D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:77:15)\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:76:28",
@@ -2397,7 +2397,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:56.942Z",
+                      "startTime": "2026-02-08T17:30:00.291Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2428,10 +2428,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 49,
-                      "parallelIndex": 4,
+                      "workerIndex": 48,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 332,
+                      "duration": 322,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:14:36",
@@ -2455,7 +2455,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:03.300Z",
+                      "startTime": "2026-02-08T17:30:05.960Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2486,10 +2486,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 50,
-                      "parallelIndex": 6,
+                      "workerIndex": 46,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 319,
+                      "duration": 340,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:31:36",
@@ -2513,7 +2513,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:03.768Z",
+                      "startTime": "2026-02-08T17:30:05.504Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2544,10 +2544,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 47,
-                      "parallelIndex": 3,
+                      "workerIndex": 49,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 341,
+                      "duration": 316,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:47:36",
@@ -2571,7 +2571,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:03.293Z",
+                      "startTime": "2026-02-08T17:30:06.688Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2602,10 +2602,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 51,
-                      "parallelIndex": 4,
+                      "workerIndex": 50,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 318,
+                      "duration": 320,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:57:36",
@@ -2629,7 +2629,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:04.624Z",
+                      "startTime": "2026-02-08T17:30:06.866Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2660,10 +2660,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 52,
-                      "parallelIndex": 3,
+                      "workerIndex": 51,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 356,
+                      "duration": 353,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at from (D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:77:15)\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:76:28",
@@ -2687,7 +2687,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:04.654Z",
+                      "startTime": "2026-02-08T17:30:07.190Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2718,10 +2718,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 63,
-                      "parallelIndex": 2,
+                      "workerIndex": 62,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 326,
+                      "duration": 331,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - Content-Type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:14:36",
@@ -2745,7 +2745,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:09.729Z",
+                      "startTime": "2026-02-08T17:30:12.517Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2776,10 +2776,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 61,
-                      "parallelIndex": 5,
+                      "workerIndex": 60,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 321,
+                      "duration": 330,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 31\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:31:36",
@@ -2803,7 +2803,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:10.006Z",
+                      "startTime": "2026-02-08T17:30:11.926Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2834,10 +2834,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 64,
-                      "parallelIndex": 2,
+                      "workerIndex": 63,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 322,
+                      "duration": 323,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:47:36",
@@ -2861,7 +2861,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:10.946Z",
+                      "startTime": "2026-02-08T17:30:13.140Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2892,10 +2892,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 65,
-                      "parallelIndex": 5,
+                      "workerIndex": 64,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 329,
+                      "duration": 315,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 136\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:57:36",
@@ -2919,7 +2919,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:11.247Z",
+                      "startTime": "2026-02-08T17:30:13.729Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -2950,10 +2950,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 66,
-                      "parallelIndex": 1,
+                      "workerIndex": 65,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 344,
+                      "duration": 343,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 40\u001b[22m\n\n    at from (D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:77:15)\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\license-validation-flow.spec.ts:76:28",
@@ -2977,7 +2977,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:12.008Z",
+                      "startTime": "2026-02-08T17:30:14.390Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -3028,7 +3028,7 @@
                       "workerIndex": 9,
                       "parallelIndex": 9,
                       "status": "timedOut",
-                      "duration": 30976,
+                      "duration": 30811,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3049,7 +3049,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.855Z",
+                      "startTime": "2026-02-08T17:29:48.306Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3104,12 +3104,12 @@
                       "workerIndex": 10,
                       "parallelIndex": 10,
                       "status": "skipped",
-                      "duration": 4159,
+                      "duration": 1080,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.862Z",
+                      "startTime": "2026-02-08T17:29:48.317Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -3148,7 +3148,7 @@
                       "workerIndex": 11,
                       "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 10094,
+                      "duration": 6659,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
@@ -3172,7 +3172,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:42.872Z",
+                      "startTime": "2026-02-08T17:29:48.338Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3219,7 +3219,7 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 24,
+                      "workerIndex": 23,
                       "parallelIndex": 10,
                       "status": "timedOut",
                       "duration": 30116,
@@ -3243,7 +3243,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:51.023Z",
+                      "startTime": "2026-02-08T17:29:55.221Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3295,15 +3295,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 25,
-                      "parallelIndex": 4,
+                      "workerIndex": 24,
+                      "parallelIndex": 7,
                       "status": "skipped",
-                      "duration": 1660,
+                      "duration": 1597,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:51.781Z",
+                      "startTime": "2026-02-08T17:29:55.700Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -3339,10 +3339,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 26,
-                      "parallelIndex": 3,
+                      "workerIndex": 25,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 7298,
+                      "duration": 7044,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
@@ -3366,7 +3366,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:53.759Z",
+                      "startTime": "2026-02-08T17:29:55.836Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3413,10 +3413,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 39,
-                      "parallelIndex": 7,
+                      "workerIndex": 38,
+                      "parallelIndex": 6,
                       "status": "timedOut",
-                      "duration": 31071,
+                      "duration": 30967,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3437,7 +3437,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:57.312Z",
+                      "startTime": "2026-02-08T17:30:00.701Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3489,15 +3489,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 40,
-                      "parallelIndex": 1,
+                      "workerIndex": 39,
+                      "parallelIndex": 8,
                       "status": "skipped",
-                      "duration": 817,
+                      "duration": 585,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:57.565Z",
+                      "startTime": "2026-02-08T17:30:01.269Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -3533,13 +3533,13 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 41,
-                      "parallelIndex": 0,
+                      "workerIndex": 40,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 6178,
+                      "duration": 6109,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts",
                           "column": 24,
@@ -3554,13 +3554,13 @@
                             "column": 24,
                             "line": 38
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n\n  36 |\n  37 |     // Should redirect to sign in\n> 38 |     await expect(page).toHaveURL(/\\/sign-in/);\n     |                        ^\n  39 |   });\n  40 | });\n  41 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n\n  36 |\n  37 |     // Should redirect to sign in\n> 38 |     await expect(page).toHaveURL(/\\/sign-in/);\n     |                        ^\n  39 |   });\n  40 | });\n  41 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:57.586Z",
+                      "startTime": "2026-02-08T17:30:01.475Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3607,10 +3607,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 53,
-                      "parallelIndex": 0,
+                      "workerIndex": 52,
+                      "parallelIndex": 7,
                       "status": "timedOut",
-                      "duration": 30806,
+                      "duration": 30824,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3631,7 +3631,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:04.781Z",
+                      "startTime": "2026-02-08T17:30:08.002Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3683,15 +3683,15 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 54,
-                      "parallelIndex": 6,
+                      "workerIndex": 53,
+                      "parallelIndex": 0,
                       "status": "skipped",
-                      "duration": 681,
+                      "duration": 841,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:05.058Z",
+                      "startTime": "2026-02-08T17:30:08.224Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -3727,10 +3727,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 55,
-                      "parallelIndex": 1,
+                      "workerIndex": 54,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 5731,
+                      "duration": 5842,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
@@ -3754,7 +3754,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:05.227Z",
+                      "startTime": "2026-02-08T17:30:08.572Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3801,10 +3801,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 67,
-                      "parallelIndex": 2,
+                      "workerIndex": 66,
+                      "parallelIndex": 1,
                       "status": "timedOut",
-                      "duration": 30774,
+                      "duration": 30766,
                       "error": {
                         "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                         "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -3825,7 +3825,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:12.201Z",
+                      "startTime": "2026-02-08T17:30:15.080Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -3877,15 +3877,15 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 68,
-                      "parallelIndex": 11,
+                      "workerIndex": 67,
+                      "parallelIndex": 2,
                       "status": "skipped",
-                      "duration": 815,
+                      "duration": 768,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:12.247Z",
+                      "startTime": "2026-02-08T17:30:15.548Z",
                       "annotations": [
                         {
                           "type": "skip",
@@ -3921,10 +3921,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 69,
-                      "parallelIndex": 5,
+                      "workerIndex": 68,
+                      "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 6146,
+                      "duration": 6223,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard/purchases\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard/purchases\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\flows\\purchase-flow.spec.ts:38:24",
@@ -3948,7 +3948,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:12.509Z",
+                      "startTime": "2026-02-08T17:30:15.614Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4012,10 +4012,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 5,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "failed",
-                      "duration": 8074,
+                      "duration": 6000,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
@@ -4039,7 +4039,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.299Z",
+                      "startTime": "2026-02-08T17:29:48.665Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4086,10 +4086,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 6,
+                      "workerIndex": 12,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 8058,
+                      "duration": 5576,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
@@ -4113,7 +4113,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.266Z",
+                      "startTime": "2026-02-08T17:29:49.895Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4160,10 +4160,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 7,
+                      "workerIndex": 13,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 346,
+                      "duration": 334,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:20:36",
@@ -4187,7 +4187,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.340Z",
+                      "startTime": "2026-02-08T17:29:49.902Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4218,10 +4218,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 15,
-                      "parallelIndex": 4,
+                      "workerIndex": 14,
+                      "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 340,
+                      "duration": 329,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:29:36",
@@ -4245,7 +4245,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:44.301Z",
+                      "startTime": "2026-02-08T17:29:49.946Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4276,13 +4276,13 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 27,
-                      "parallelIndex": 6,
+                      "workerIndex": 26,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 6788,
+                      "duration": 6566,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts",
                           "column": 24,
@@ -4297,13 +4297,13 @@
                             "column": 24,
                             "line": 7
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n\n   5 |     await page.goto('/');\n   6 |\n>  7 |     await expect(page).toHaveTitle(/License Key Shop/);\n     |                        ^\n   8 |     await expect(page.locator('h1')).toBeVisible();\n   9 |   });\n  10 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n\n   5 |     await page.goto('/');\n   6 |\n>  7 |     await expect(page).toHaveTitle(/License Key Shop/);\n     |                        ^\n   8 |     await expect(page.locator('h1')).toBeVisible();\n   9 |   });\n  10 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:53.796Z",
+                      "startTime": "2026-02-08T17:29:55.815Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4350,13 +4350,13 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 28,
-                      "parallelIndex": 5,
+                      "workerIndex": 27,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 6734,
+                      "duration": 6837,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts",
                           "column": 24,
@@ -4371,13 +4371,13 @@
                             "column": 24,
                             "line": 15
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  13 |\n  14 |     // Should redirect to sign in if not authenticated\n> 15 |     await expect(page).toHaveURL(/\\/sign-in/);\n     |                        ^\n  16 |   });\n  17 |\n  18 |   test('API health check', async ({ request }) => {\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n\n  13 |\n  14 |     // Should redirect to sign in if not authenticated\n> 15 |     await expect(page).toHaveURL(/\\/sign-in/);\n     |                        ^\n  16 |   });\n  17 |\n  18 |   test('API health check', async ({ request }) => {\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:53.877Z",
+                      "startTime": "2026-02-08T17:29:55.810Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4424,10 +4424,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 29,
-                      "parallelIndex": 1,
+                      "workerIndex": 28,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 334,
+                      "duration": 339,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:20:36",
@@ -4451,7 +4451,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:53.911Z",
+                      "startTime": "2026-02-08T17:29:55.986Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4482,10 +4482,10 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 30,
-                      "parallelIndex": 0,
+                      "workerIndex": 29,
+                      "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 340,
+                      "duration": 343,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:29:36",
@@ -4509,7 +4509,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:53.934Z",
+                      "startTime": "2026-02-08T17:29:56.235Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4540,13 +4540,13 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 42,
+                      "workerIndex": 41,
                       "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 5983,
+                      "duration": 5958,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
                         "location": {
                           "file": "D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts",
                           "column": 24,
@@ -4561,13 +4561,13 @@
                             "column": 24,
                             "line": 7
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n\n   5 |     await page.goto('/');\n   6 |\n>  7 |     await expect(page).toHaveTitle(/License Key Shop/);\n     |                        ^\n   8 |     await expect(page.locator('h1')).toBeVisible();\n   9 |   });\n  10 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    8 × unexpected value \"\"\u001b[22m\n\n\n   5 |     await page.goto('/');\n   6 |\n>  7 |     await expect(page).toHaveTitle(/License Key Shop/);\n     |                        ^\n   8 |     await expect(page.locator('h1')).toBeVisible();\n   9 |   });\n  10 |\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:58.388Z",
+                      "startTime": "2026-02-08T17:30:01.701Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4614,10 +4614,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 40,
-                      "parallelIndex": 1,
+                      "workerIndex": 39,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 5798,
+                      "duration": 5831,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
@@ -4641,7 +4641,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:25:58.454Z",
+                      "startTime": "2026-02-08T17:30:01.909Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4688,10 +4688,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 43,
-                      "parallelIndex": 8,
+                      "workerIndex": 42,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 338,
+                      "duration": 336,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:20:36",
@@ -4715,7 +4715,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:01.427Z",
+                      "startTime": "2026-02-08T17:30:03.795Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4746,10 +4746,10 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 44,
-                      "parallelIndex": 2,
+                      "workerIndex": 43,
+                      "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 330,
+                      "duration": 344,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:29:36",
@@ -4773,7 +4773,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:01.513Z",
+                      "startTime": "2026-02-08T17:30:04.374Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -4804,10 +4804,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 56,
-                      "parallelIndex": 11,
+                      "workerIndex": 55,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 5823,
+                      "duration": 5792,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
@@ -4831,7 +4831,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:05.407Z",
+                      "startTime": "2026-02-08T17:30:08.674Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4878,10 +4878,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 57,
-                      "parallelIndex": 4,
+                      "workerIndex": 56,
+                      "parallelIndex": 11,
                       "status": "failed",
-                      "duration": 5581,
+                      "duration": 5712,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
@@ -4905,7 +4905,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:06.033Z",
+                      "startTime": "2026-02-08T17:30:08.756Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -4952,10 +4952,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 58,
-                      "parallelIndex": 3,
+                      "workerIndex": 57,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 325,
+                      "duration": 328,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:20:36",
@@ -4979,7 +4979,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:06.070Z",
+                      "startTime": "2026-02-08T17:30:08.836Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -5010,10 +5010,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 54,
-                      "parallelIndex": 6,
+                      "workerIndex": 53,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 324,
+                      "duration": 320,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:29:36",
@@ -5037,7 +5037,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:05.835Z",
+                      "startTime": "2026-02-08T17:30:09.168Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -5068,10 +5068,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 70,
-                      "parallelIndex": 4,
+                      "workerIndex": 69,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 6078,
+                      "duration": 6022,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/License Key Shop/\u001b[39m\nReceived string:  \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:7:24",
@@ -5095,7 +5095,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:12.663Z",
+                      "startTime": "2026-02-08T17:30:15.627Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -5142,10 +5142,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 71,
-                      "parallelIndex": 1,
+                      "workerIndex": 70,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 5656,
+                      "duration": 5875,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/sign-in/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/dashboard\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"http://localhost:3000/dashboard\"\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:15:24",
@@ -5169,7 +5169,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:13.638Z",
+                      "startTime": "2026-02-08T17:30:15.785Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -5216,10 +5216,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 72,
-                      "parallelIndex": 6,
+                      "workerIndex": 71,
+                      "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 326,
+                      "duration": 331,
                       "error": {
                         "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
                         "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://localhost:3001/health\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:20:36",
@@ -5243,7 +5243,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:14.009Z",
+                      "startTime": "2026-02-08T17:30:16.900Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -5274,10 +5274,10 @@
                   "projectName": "Mobile Safari",
                   "results": [
                     {
-                      "workerIndex": 68,
-                      "parallelIndex": 11,
+                      "workerIndex": 72,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 325,
+                      "duration": 327,
                       "error": {
                         "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n",
                         "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://localhost:3001/api/v1/validate\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - X-API-Key: test-api-key\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 30\u001b[22m\n\n    at D:\\CLAUDE\\licsence-key-shop\\apps\\frontend\\e2e\\smoke\\health.spec.ts:29:36",
@@ -5301,7 +5301,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-08T13:26:13.135Z",
+                      "startTime": "2026-02-08T17:30:17.265Z",
                       "annotations": [],
                       "attachments": [],
                       "errorLocation": {
@@ -5326,8 +5326,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-08T13:25:40.697Z",
-    "duration": 62472.187,
+    "startTime": "2026-02-08T17:29:46.108Z",
+    "duration": 59944.203,
     "expected": 0,
     "skipped": 10,
     "unexpected": 70,

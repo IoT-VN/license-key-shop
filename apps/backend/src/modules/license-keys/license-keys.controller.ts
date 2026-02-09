@@ -17,6 +17,7 @@ import {
   BatchGenerationStatus,
 } from './dto/generate-key.dto';
 import { ValidateKeyDto, ValidationResult } from './dto/validate-key.dto';
+import { ValidationResultDto } from '../validation/dto/validate-key.dto';
 import { RevokeKeyDto, RevocationResponse } from './dto/revoke-key.dto';
 import { QueryKeysDto, PaginatedKeysResponse } from './dto/query-key.dto';
 import { AdminGuard } from '../../common/guards/admin.guard';
@@ -70,7 +71,7 @@ export class LicenseKeysController {
   @Post('validate')
   @Throttle({ default: { limit: 10, ttl: 1000 } })
   @HttpCode(HttpStatus.OK)
-  async validate(@Body() dto: ValidateKeyDto): Promise<ValidationResult> {
+  async validate(@Body() dto: ValidateKeyDto): Promise<ValidationResultDto> {
     return this.licenseKeysService.validateKey(dto.keyString, {
       ipAddress: dto.ipAddress,
       userAgent: dto.userAgent,

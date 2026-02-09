@@ -26,7 +26,30 @@
       "Bash(pnpm run test:*)",
       "Bash(pnpm exec playwright install:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(gh repo create:*)",
+      "Bash(pnpm ls:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm test:e2e:*)",
+      "Bash(git rm:*)",
+      "Bash(npm run test:coverage:*)",
+      "Bash(npm test:*)",
+      "Bash(openssl:*)",
+      "Bash(findstr:*)",
+      "Bash(pnpm run:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh run list:*)",
+      "Bash(git grep:*)",
+      "Bash(agent-browser:*)",
+      "Bash(railway:*)",
+      "Bash(notepad \"C:\\\\Users\\\\MM2512\\\\.claude\\\\.mcp.json\")",
+      "Bash(python:*)"
     ]
   }
 }

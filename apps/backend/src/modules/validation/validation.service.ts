@@ -50,7 +50,7 @@ export class ValidationService {
           validationReason: result.reason || result.status,
           ipAddress: metadata?.ipAddress,
           userAgent: metadata?.userAgent,
-          metadata: result as Record<string, unknown>,
+          metadata: result as unknown as Prisma.JsonValue,
         },
       });
     }

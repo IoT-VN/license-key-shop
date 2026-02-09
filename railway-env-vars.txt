@@ -1,0 +1,39 @@
+# Copy these to Railway backend service Variables:
+
+# Database (use Railway references)
+DATABASE_URL={{Postgres.DATABASE_URL}}
+REDIS_URL={{Redis.REDIS_URL}}
+
+# Application
+PORT=3001
+NODE_ENV=production
+
+# CORS (temporary - update after frontend)
+FRONTEND_URL=https://license-key-shop-frontend.vercel.app
+
+# Cryptographic Keys
+LICENSE_PRIVATE_KEY="-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEIJwqlI0+hyBoR6AGQrL6PACaLkYsJDlkDMMTFwyybIeZoAoGCCqGSM49\nAwEHoUQDQgAES9IRYpZG1nRNEVehqxdkJ6hGX1IPZ6T8Jmg28W+0KLbsz7tmMQYB\ngjl2L23sC2QDkDYkgI8Lnt2IUI61j8+gRw==\n-----END EC PRIVATE KEY-----"
+
+LICENSE_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAES9IRYpZG1nRNEVehqxdkJ6hGX1IP\nZ6T8Jmg28W+0KLbsz7tmMQYBgjl2L23sC2QDkDYkgI8Lnt2IUI61j8+gRw==\n-----END PUBLIC KEY-----"
+
+HMAC_SECRET=qm7F/P/lQmA3dd1MzGcUihso5WC1MFMtmmQgCdRw8SA=
+JWT_SECRET=ARNoGbafgU0JO5ITS2ReNR77cTeXL86DZaFc5tI6MBI=
+API_KEY_SALT=rySwHcCoL5zV88fb7LxIUKnjukRCEJMWHu1NaGmdZWA=
+
+# Rate Limiting
+RATE_LIMIT_TTL=3600
+RATE_LIMIT_MAX=10000
+
+# Security
+ENABLE_IP_REPUTATION=true
+
+# Add your Clerk credentials:
+CLERK_SECRET_KEY=sk_live_XXXXX
+CLERK_WEBHOOK_SECRET=whsec_XXXXX
+CLERK_JWT_PUBLIC_KEY="-----BEGIN PUBLIC KEY-----\n..."
+
+# Add your Stripe credentials:
+STRIPE_SECRET_KEY=sk_live_XXXXX
+STRIPE_WEBHOOK_SECRET=whsec_XXXXX
+STRIPE_TAX_ID=tax_XXXXX
+STRIPE_WEBHOOK_ENDPOINT=https://your-backend.railway.app/webhooks/stripe
