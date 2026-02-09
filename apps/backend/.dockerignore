@@ -2,9 +2,7 @@
 node_modules
 **/node_modules
 
-# Build outputs
-dist
-**/dist
+# Build outputs (keep dist for deployment)
 .next
 out
 .turbo
