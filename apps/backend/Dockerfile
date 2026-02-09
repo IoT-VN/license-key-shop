@@ -23,12 +23,13 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json pnpm-lock.yaml ./
+# Copy package files and prisma
+COPY package.json pnpm-lock.yaml prisma ./prisma ./
 
 # Install pnpm and production dependencies only
 RUN npm install -g pnpm && \
-    pnpm install --prod --frozen-lockfile
+    pnpm install --prod --frozen-lockfile && \
+    npx prisma generate
 
 # Copy built application from builder
 COPY --from=builder /app/dist ./dist
@@ -41,4 +42,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=40s \
   CMD node -e "require('http').get('http://localhost:3001/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
 # Start application
-CMD ["node", "dist/main.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]

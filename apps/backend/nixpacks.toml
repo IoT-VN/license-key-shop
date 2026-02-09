@@ -1,5 +1,0 @@
-[phases.build]
-cmds = ["pnpm install --frozen-lockfile", "pnpm run build"]
-
-[start]
-cmd = "npx prisma migrate deploy && node dist/main.js"
