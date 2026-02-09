@@ -5,6 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "packageManager": "pnpm@8.15.9",
   "scripts": {
     "prebuild": "prisma generate",
     "build": "nest build",
