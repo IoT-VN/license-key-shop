@@ -6,7 +6,7 @@
     "watchPatterns": ["apps/backend/**"]
   },
   "deploy": {
-    "startCommand": "npx prisma migrate deploy && node dist/main.js",
+    "startCommand": "pnpm run start:deploy",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
