@@ -3,7 +3,7 @@
   "build": {
     "builder": "RAILPACK",
     "buildCommand": "cd apps/backend && pnpm install --frozen-lockfile && npx prisma generate && pnpm run build",
-    "watchPatterns": ["apps/backend/**"]
+    "watchPatterns": ["apps/backend/**", "railway.json"]
   },
   "deploy": {
     "startCommand": "cd apps/backend && pnpm run start:deploy",
