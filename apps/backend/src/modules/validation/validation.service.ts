@@ -3,6 +3,7 @@ import { LicenseKeysService } from '../license-keys/license-keys.service';
 import { PrismaService } from '../database/prisma.service';
 import { RedisService } from '../redis/redis.service';
 import { ValidationMetadata } from '../../common/types/metadata.types';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class ValidationService {

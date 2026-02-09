@@ -71,7 +71,7 @@ export class LicenseKeysController {
   @Post('validate')
   @Throttle({ default: { limit: 10, ttl: 1000 } })
   @HttpCode(HttpStatus.OK)
-  async validate(@Body() dto: ValidateKeyDto): Promise<ValidationResultDto> {
+  async validate(@Body() dto: ValidateKeyDto): Promise<any> {
     return this.licenseKeysService.validateKey(dto.keyString, {
       ipAddress: dto.ipAddress,
       userAgent: dto.userAgent,
