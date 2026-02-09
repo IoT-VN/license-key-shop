@@ -18,9 +18,10 @@ export class EnvValidationSchema {
   @IsString()
   DATABASE_URL: string;
 
-  // Redis
+  // Redis (optional - for caching)
   @IsString()
-  REDIS_URL: string;
+  @IsOptional()
+  REDIS_URL?: string;
 
   // Clerk Authentication
   @IsString()
