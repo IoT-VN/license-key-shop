@@ -35,7 +35,7 @@ yarn-error.log*
 # package manager
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
+# pnpm-lock.yaml needed for Railway deployment
 
 # semantic-release
 .nyc_output
