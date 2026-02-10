@@ -1,0 +1,2 @@
+# Only exclude what's truly needed for Railway
+# Keep build outputs included
