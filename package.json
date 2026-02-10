@@ -2,6 +2,7 @@
   "name": "license-key-shop",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@8.15.9",
   "scripts": {
     "start": "pnpm --filter backend start:deploy",
     "dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend start:dev\"",
