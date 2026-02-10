@@ -12,7 +12,7 @@ COPY packages/shared/package.json ./packages/shared/
 COPY apps/backend/package.json ./apps/backend/
 
 # Install dependencies
-RUN pnpm install --frozen-lockfile=false
+RUN pnpm install --frozen-lockfile=false --ignore-scripts
 
 # Copy source code
 COPY packages/shared ./packages/shared
@@ -35,7 +35,7 @@ COPY packages/shared/package.json ./packages/shared/
 COPY apps/backend/package.json ./apps/backend/
 
 # Install production dependencies only
-RUN pnpm install --prod --frozen-lockfile=false
+RUN pnpm install --prod --frozen-lockfile=false --ignore-scripts
 
 # Copy built application from builder stage
 COPY --from=builder /app/apps/backend/dist ./apps/backend/dist
